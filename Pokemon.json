@@ -1,0 +1,1361 @@
+[
+  {
+    "Name": "Bulbasaur",
+    "Type": "Grass",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 1,
+    "Weakness": "Fire",
+    "Retreat": 2
+  },
+  {
+    "Name": "Ivysaur",
+    "Type": "Grass",
+    "HP": 100,
+    "Stage": "Stage 1",
+    "Number": 2,
+    "Weakness": "Fire",
+    "Retreat": 3
+  },
+  {
+    "Name": "Venasaur",
+    "Type": "Grass",
+    "HP": 340,
+    "Stage": "Stage 2",
+    "Number": 3,
+    "Weakness": "Fire",
+    "Retreat": 4
+  },
+  {
+    "Name": "Charmander",
+    "Type": "Fire",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 4,
+    "Weakness": "Water",
+    "Retreat": 1
+  },
+  {
+    "Name": "Charmeleon",
+    "Type": "Fire",
+    "HP": 100,
+    "Stage": "Stage 1",
+    "Number": 5,
+    "Weakness": "Water",
+    "Retreat": 2
+  },
+  {
+    "Name": "Charizard",
+    "Type": "Fire",
+    "HP": 330,
+    "Stage": "Stage 2",
+    "Number": 6,
+    "Weakness": "Water",
+    "Retreat": 2
+  },
+  {
+    "Name": "Squirtle",
+    "Type": "Water",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 7,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Wartortle",
+    "Type": "Water",
+    "HP": 100,
+    "Stage": "Stage 1",
+    "Number": 8,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Blastoise",
+    "Type": "Water",
+    "HP": 330,
+    "Stage": "Stage 2",
+    "Number": 9,
+    "Weakness": "Lightning",
+    "Retreat": 3
+  },
+  {
+    "Name": "Caterpie",
+    "Type": "Grass",
+    "HP": 50,
+    "Stage": "Basic",
+    "Number": 10,
+    "Weakness": "Fire",
+    "Retreat": 1
+  },
+  {
+    "Name": "Metapod",
+    "Type": "Grass",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 11,
+    "Weakness": "Fire",
+    "Retreat": 3
+  },
+  {
+    "Name": "Butterfree",
+    "Type": "Grass",
+    "HP": 130,
+    "Stage": "Stage 2",
+    "Number": 12,
+    "Weakness": "Fire",
+    "Retreat": 1
+  },
+  {
+    "Name": "Weedle",
+    "Type": "Grass",
+    "HP": 50,
+    "Stage": "Basic",
+    "Number": 13,
+    "Weakness": "Fire",
+    "Retreat": 1
+  },
+  {
+    "Name": "Kakuna",
+    "Type": "Grass",
+    "HP": 80,
+    "Stage": "Stage 1",
+    "Number": 14,
+    "Weakness": "Fire",
+    "Retreat": 3
+  },
+  {
+    "Name": "Beedrill",
+    "Type": "Grass",
+    "HP": 130,
+    "Stage": "Stage 2",
+    "Number": 15,
+    "Weakness": "Fire",
+    "Retreat": 1
+  },
+  {
+    "Name": "Pidgey",
+    "Type": "Colorless",
+    "HP": 50,
+    "Stage": "Basic",
+    "Number": 16,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Pidgeotto",
+    "Type": "Colorless",
+    "HP": 80,
+    "Stage": "Stage 1",
+    "Number": 17,
+    "Weakness": "Lightning",
+    "Retreat": 0
+  },
+  {
+    "Name": "Pidgeot",
+    "Type": "Colorless",
+    "HP": 130,
+    "Stage": "Stage 2",
+    "Number": 18,
+    "Weakness": "Lightning",
+    "Retreat": 0
+  },
+  {
+    "Name": "Rattata",
+    "Type": "Colorless",
+    "HP": 40,
+    "Stage": "Basic",
+    "Number": 19,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Raticate",
+    "Type": "Colorless",
+    "HP": 70,
+    "Stage": "Stage 1",
+    "Number": 20,
+    "Weakness": "Fighting",
+    "Retreat": 0
+  },
+  {
+    "Name": "Spearow",
+    "Type": "Colorless",
+    "HP": 50,
+    "Stage": "Basic",
+    "Number": 21,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Fearow",
+    "Type": "Colorless",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 22,
+    "Weakness": "Lightning",
+    "Retreat": 0
+  },
+  {
+    "Name": "Ekans",
+    "Type": "Darkness",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 23,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Arbok",
+    "Type": "Darkness",
+    "HP": 270,
+    "Stage": "Stage 1",
+    "Number": 24,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Pikachu",
+    "Type": "Lightning",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 25,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Raichu",
+    "Type": "Lightning",
+    "HP": 120,
+    "Stage": "Stage 1",
+    "Number": 26,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Sandshrew",
+    "Type": "Fighting",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 27,
+    "Weakness": "Grass",
+    "Retreat": 1
+  },
+  {
+    "Name": "Sandslash",
+    "Type": "Fighting",
+    "HP": 120,
+    "Stage": "Stage 1",
+    "Number": 28,
+    "Weakness": "Grass",
+    "Retreat": 2
+  },
+  {
+    "Name": "Nidoran",
+    "Type": "Darkness",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 29,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Nidorina",
+    "Type": "Darkness",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 30,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Nidoqueen",
+    "Type": "Darkness",
+    "HP": 170,
+    "Stage": "Stage 2",
+    "Number": 31,
+    "Weakness": "Fighting",
+    "Retreat": 3
+  },
+  {
+    "Name": "Nidoran",
+    "Type": "Darkness",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 32,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Nidorino",
+    "Type": "Darkness",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 33,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Nidoking",
+    "Type": "Darkness",
+    "HP": 170,
+    "Stage": "Stage 2",
+    "Number": 34,
+    "Weakness": "Fighting",
+    "Retreat": 3
+  },
+  {
+    "Name": "Clefairy",
+    "Type": "Psychic",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 35,
+    "Weakness": "Metal",
+    "Retreat": 1
+  },
+  {
+    "Name": "Clefable",
+    "Type": "Psychic",
+    "HP": 100,
+    "Stage": "Stage 1",
+    "Number": 36,
+    "Weakness": "Metal",
+    "Retreat": 2
+  },
+  {
+    "Name": "Vulpix",
+    "Type": "Fire",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 37,
+    "Weakness": "Water",
+    "Retreat": 1
+  },
+  {
+    "Name": "Ninetales",
+    "Type": "Fire",
+    "HP": 260,
+    "Stage": "Stage 1",
+    "Number": 38,
+    "Weakness": "Water",
+    "Retreat": 2
+  },
+  {
+    "Name": "Jigglypuff",
+    "Type": "Colorless",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 39,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Wigglytuff",
+    "Type": "Colorless",
+    "HP": 250,
+    "Stage": "Stage 1",
+    "Number": 40,
+    "Weakness": "Fighting",
+    "Retreat": 3
+  },
+  {
+    "Name": "Zubat",
+    "Type": "Darkness",
+    "HP": 40,
+    "Stage": "Basic",
+    "Number": 41,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Golbat",
+    "Type": "Darkness",
+    "HP": 80,
+    "Stage": "Stage 1",
+    "Number": 42,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Oddish",
+    "Type": "Grass",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 43,
+    "Weakness": "Fire",
+    "Retreat": 1
+  },
+  {
+    "Name": "Gloom",
+    "Type": "Grass",
+    "HP": 70,
+    "Stage": "Stage 1",
+    "Number": 44,
+    "Weakness": "Fire",
+    "Retreat": 1
+  },
+  {
+    "Name": "Vileplume",
+    "Type": "Grass",
+    "HP": 140,
+    "Stage": "Stage 2",
+    "Number": 45,
+    "Weakness": "Fire",
+    "Retreat": 2
+  },
+  {
+    "Name": "Paras",
+    "Type": "Grass",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 46,
+    "Weakness": "Fire",
+    "Retreat": 2
+  },
+  {
+    "Name": "Parasect",
+    "Type": "Grass",
+    "HP": 120,
+    "Stage": "Stage 1",
+    "Number": 47,
+    "Weakness": "Fire",
+    "Retreat": 2
+  },
+  {
+    "Name": "Venonat",
+    "Type": "Grass",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 48,
+    "Weakness": "Fire",
+    "Retreat": 2
+  },
+  {
+    "Name": "Venomoth",
+    "Type": "Grass",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 49,
+    "Weakness": "Fire",
+    "Retreat": 1
+  },
+  {
+    "Name": "Diglett",
+    "Type": "Fighting",
+    "HP": 50,
+    "Stage": "Basic",
+    "Number": 50,
+    "Weakness": "Grass",
+    "Retreat": 1
+  },
+  {
+    "Name": "Dugtrio",
+    "Type": "Fighting",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 51,
+    "Weakness": "Grass",
+    "Retreat": 1
+  },
+  {
+    "Name": "Meowth",
+    "Type": "Colorless",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 52,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Persian",
+    "Type": "Colorless",
+    "HP": 110,
+    "Stage": "Stage 1",
+    "Number": 53,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Psyduck",
+    "Type": "Water",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 54,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Golduck",
+    "Type": "Water",
+    "HP": 110,
+    "Stage": "Stage 1",
+    "Number": 55,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Mankey",
+    "Type": "Fighting",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 56,
+    "Weakness": "Psychic",
+    "Retreat": 1
+  },
+  {
+    "Name": "Primeape",
+    "Type": "Fighting",
+    "HP": 120,
+    "Stage": "Stage 1",
+    "Number": 57,
+    "Weakness": "Psychic",
+    "Retreat": 2
+  },
+  {
+    "Name": "Growlithe",
+    "Type": "Fire",
+    "HP": 80,
+    "Stage": "Basic",
+    "Number": 58,
+    "Weakness": "Water",
+    "Retreat": 2
+  },
+  {
+    "Name": "Arcanine",
+    "Type": "Fire",
+    "HP": 150,
+    "Stage": "Stage 1",
+    "Number": 59,
+    "Weakness": "Water",
+    "Retreat": 4
+  },
+  {
+    "Name": "Poliwag",
+    "Type": "Water",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 60,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Poliwhirl",
+    "Type": "Water",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 61,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Poliwrath",
+    "Type": "Water",
+    "HP": 160,
+    "Stage": "Stage 2",
+    "Number": 62,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Abra",
+    "Type": "Psychic",
+    "HP": 50,
+    "Stage": "Basic",
+    "Number": 63,
+    "Weakness": "Darkness",
+    "Retreat": 1
+  },
+  {
+    "Name": "Kadabra",
+    "Type": "Psychic",
+    "HP": 80,
+    "Stage": "Stage 1",
+    "Number": 64,
+    "Weakness": "Darkness",
+    "Retreat": 1
+  },
+  {
+    "Name": "Alakazam",
+    "Type": "Psychic",
+    "HP": 310,
+    "Stage": "Stage 2",
+    "Number": 65,
+    "Weakness": "Darkness",
+    "Retreat": 1
+  },
+  {
+    "Name": "Machop",
+    "Type": "Fighting",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 66,
+    "Weakness": "Psychic",
+    "Retreat": 2
+  },
+  {
+    "Name": "Machoke",
+    "Type": "Fighting",
+    "HP": 100,
+    "Stage": "Stage 1",
+    "Number": 67,
+    "Weakness": "Psychic",
+    "Retreat": 2
+  },
+  {
+    "Name": "Machamp",
+    "Type": "Fighting",
+    "HP": 180,
+    "Stage": "Stage 2",
+    "Number": 68,
+    "Weakness": "Psychic",
+    "Retreat": 2
+  },
+  {
+    "Name": "Bellsprout",
+    "Type": "Grass",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 69,
+    "Weakness": "Fire",
+    "Retreat": 1
+  },
+  {
+    "Name": "Weepinbell",
+    "Type": "Grass",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 70,
+    "Weakness": "Fire",
+    "Retreat": 2
+  },
+  {
+    "Name": "Victreebel",
+    "Type": "Grass",
+    "HP": 150,
+    "Stage": "Stage 2",
+    "Number": 71,
+    "Weakness": "Fire",
+    "Retreat": 3
+  },
+  {
+    "Name": "Tentacool",
+    "Type": "Water",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 72,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Tentacruel",
+    "Type": "Water",
+    "HP": 120,
+    "Stage": "Stage 1",
+    "Number": 73,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Geodude",
+    "Type": "Fighting",
+    "HP": 80,
+    "Stage": "Basic",
+    "Number": 74,
+    "Weakness": "Grass",
+    "Retreat": 2
+  },
+  {
+    "Name": "Graveler",
+    "Type": "Fighting",
+    "HP": 110,
+    "Stage": "Stage 1",
+    "Number": 75,
+    "Weakness": "Grass",
+    "Retreat": 3
+  },
+  {
+    "Name": "Golem",
+    "Type": "Fighting",
+    "HP": 330,
+    "Stage": "Stage 2",
+    "Number": 76,
+    "Weakness": "Grass",
+    "Retreat": 4
+  },
+  {
+    "Name": "Ponyta",
+    "Type": "Fire",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 77,
+    "Weakness": "Water",
+    "Retreat": 1
+  },
+  {
+    "Name": "Rapidash",
+    "Type": "Fire",
+    "HP": 100,
+    "Stage": "Stage 1",
+    "Number": 78,
+    "Weakness": "Water",
+    "Retreat": 1
+  },
+  {
+    "Name": "Slowpoke",
+    "Type": "Psychic",
+    "HP": 80,
+    "Stage": "Basic",
+    "Number": 79,
+    "Weakness": "Darkness",
+    "Retreat": 2
+  },
+  {
+    "Name": "Slowbro",
+    "Type": "Psychic",
+    "HP": 130,
+    "Stage": "Stage 1",
+    "Number": 80,
+    "Weakness": "Darkness",
+    "Retreat": 2
+  },
+  {
+    "Name": "Magnemite",
+    "Type": "Lightning",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 81,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Magneton",
+    "Type": "Lightning",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 82,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Farfetch'd",
+    "Type": "Colorless",
+    "HP": 90,
+    "Stage": "Basic",
+    "Number": 83,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Doduo",
+    "Type": "Colorless",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 84,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Dodrio",
+    "Type": "Colorless",
+    "HP": 100,
+    "Stage": "Stage 1",
+    "Number": 85,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Seel",
+    "Type": "Water",
+    "HP": 80,
+    "Stage": "Basic",
+    "Number": 86,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Dewgong",
+    "Type": "Water",
+    "HP": 130,
+    "Stage": "Stage 1",
+    "Number": 87,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Grimer",
+    "Type": "Darkness",
+    "HP": 80,
+    "Stage": "Basic",
+    "Number": 88,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Muk",
+    "Type": "Darkness",
+    "HP": 150,
+    "Stage": "Stage 1",
+    "Number": 89,
+    "Weakness": "Fighting",
+    "Retreat": 4
+  },
+  {
+    "Name": "Shellder",
+    "Type": "Water",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 90,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Cloyster",
+    "Type": "Water",
+    "HP": 130,
+    "Stage": "Stage 1",
+    "Number": 91,
+    "Weakness": "Lightning",
+    "Retreat": 3
+  },
+  {
+    "Name": "Gastly",
+    "Type": "Psychic",
+    "HP": 50,
+    "Stage": "Basic",
+    "Number": 92,
+    "Weakness": "Darkness",
+    "Retreat": 1
+  },
+  {
+    "Name": "Haunter",
+    "Type": "Psychic",
+    "HP": 80,
+    "Stage": "Stage 1",
+    "Number": 93,
+    "Weakness": "Darkness",
+    "Retreat": 1
+  },
+  {
+    "Name": "Gengar",
+    "Type": "Psychic",
+    "HP": 130,
+    "Stage": "Stage 2",
+    "Number": 94,
+    "Weakness": "Darkness",
+    "Retreat": 0
+  },
+  {
+    "Name": "Onix",
+    "Type": "Fighting",
+    "HP": 120,
+    "Stage": "Basic",
+    "Number": 95,
+    "Weakness": "Grass",
+    "Retreat": 4
+  },
+  {
+    "Name": "Drowzee",
+    "Type": "Psychic",
+    "HP": 80,
+    "Stage": "Basic",
+    "Number": 96,
+    "Weakness": "Darkness",
+    "Retreat": 2
+  },
+  {
+    "Name": "Hypno",
+    "Type": "Psychic",
+    "HP": 110,
+    "Stage": "Stage 1",
+    "Number": 97,
+    "Weakness": "Darkness",
+    "Retreat": 2
+  },
+  {
+    "Name": "Krabby",
+    "Type": "Water",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 98,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Kingler",
+    "Type": "Water",
+    "HP": 140,
+    "Stage": "Stage 1",
+    "Number": 99,
+    "Weakness": "Lightning",
+    "Retreat": 3
+  },
+  {
+    "Name": "Voltorb",
+    "Type": "Lightning",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 100,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Electrode",
+    "Type": "Lightning",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 101,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Exeggcute",
+    "Type": "Grass",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 102,
+    "Weakness": "Fire",
+    "Retreat": 1
+  },
+  {
+    "Name": "Exeggutor",
+    "Type": "Grass",
+    "HP": 140,
+    "Stage": "Stage 1",
+    "Number": 103,
+    "Weakness": "Fire",
+    "Retreat": 3
+  },
+  {
+    "Name": "Cubone",
+    "Type": "Fighting",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 104,
+    "Weakness": "Grass",
+    "Retreat": 1
+  },
+  {
+    "Name": "Marowak",
+    "Type": "Fighting",
+    "HP": 120,
+    "Stage": "Stage 1",
+    "Number": 105,
+    "Weakness": "Grass",
+    "Retreat": 2
+  },
+  {
+    "Name": "Hitmonlee",
+    "Type": "Fighting",
+    "HP": 120,
+    "Stage": "Basic",
+    "Number": 106,
+    "Weakness": "Psychic",
+    "Retreat": 2
+  },
+  {
+    "Name": "Hitmonchan",
+    "Type": "Fighting",
+    "HP": 120,
+    "Stage": "Basic",
+    "Number": 107,
+    "Weakness": "Psychic",
+    "Retreat": 1
+  },
+  {
+    "Name": "Lickitung",
+    "Type": "Colorless",
+    "HP": 100,
+    "Stage": "Basic",
+    "Number": 108,
+    "Weakness": "Fighting",
+    "Retreat": 4
+  },
+  {
+    "Name": "Koffing",
+    "Type": "Darkness",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 109,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Weezing",
+    "Type": "Darkness",
+    "HP": 110,
+    "Stage": "Stage 1",
+    "Number": 110,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Rhyhorn",
+    "Type": "Fighting",
+    "HP": 100,
+    "Stage": "Basic",
+    "Number": 111,
+    "Weakness": "Grass",
+    "Retreat": 3
+  },
+  {
+    "Name": "Rhydon",
+    "Type": "Fighting",
+    "HP": 120,
+    "Stage": "Stage 1",
+    "Number": 112,
+    "Weakness": "Grass",
+    "Retreat": 4
+  },
+  {
+    "Name": "Chansey",
+    "Type": "Colorless",
+    "HP": 110,
+    "Stage": "Basic",
+    "Number": 113,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Tangela",
+    "Type": "Grass",
+    "HP": 80,
+    "Stage": "Basic",
+    "Number": 114,
+    "Weakness": "Fire",
+    "Retreat": 2
+  },
+  {
+    "Name": "Kangaskhan",
+    "Type": "Colorless",
+    "HP": 230,
+    "Stage": "Basic",
+    "Number": 115,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Horsea",
+    "Type": "Water",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 116,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Seadra",
+    "Type": "Water",
+    "HP": 80,
+    "Stage": "Stage 1",
+    "Number": 117,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Goldeen",
+    "Type": "Water",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 118,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Seaking",
+    "Type": "Water",
+    "HP": 110,
+    "Stage": "Stage 1",
+    "Number": 119,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Staryu",
+    "Type": "Water",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 120,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Starmie",
+    "Type": "Water",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 121,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Mr. Mime",
+    "Type": "Psychic",
+    "HP": 90,
+    "Stage": "Basic",
+    "Number": 122,
+    "Weakness": "Darkness",
+    "Retreat": 1
+  },
+  {
+    "Name": "Scyther",
+    "Type": "Grass",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 123,
+    "Weakness": "Fire",
+    "Retreat": 0
+  },
+  {
+    "Name": "Jynx",
+    "Type": "Water",
+    "HP": 200,
+    "Stage": "Basic",
+    "Number": 124,
+    "Weakness": "Metal",
+    "Retreat": 2
+  },
+  {
+    "Name": "Electabuzz",
+    "Type": "Lightning",
+    "HP": 90,
+    "Stage": "Basic",
+    "Number": 125,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Magmar",
+    "Type": "Fire",
+    "HP": 90,
+    "Stage": "Basic",
+    "Number": 126,
+    "Weakness": "Water",
+    "Retreat": 2
+  },
+  {
+    "Name": "Pinsir",
+    "Type": "Grass",
+    "HP": 120,
+    "Stage": "Basic",
+    "Number": 127,
+    "Weakness": "Fire",
+    "Retreat": 2
+  },
+  {
+    "Name": "Tauros",
+    "Type": "Colorless",
+    "HP": 120,
+    "Stage": "Basic",
+    "Number": 128,
+    "Weakness": "Fighting",
+    "Retreat": 2
+  },
+  {
+    "Name": "Magikarp",
+    "Type": "Water",
+    "HP": 30,
+    "Stage": "Basic",
+    "Number": 129,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Gyarados",
+    "Type": "Water",
+    "HP": 190,
+    "Stage": "Stage 1",
+    "Number": 130,
+    "Weakness": "Lightning",
+    "Retreat": 4
+  },
+  {
+    "Name": "Lapras",
+    "Type": "Water",
+    "HP": 110,
+    "Stage": "Basic",
+    "Number": 131,
+    "Weakness": "Lightning",
+    "Retreat": 1
+  },
+  {
+    "Name": "Ditto",
+    "Type": "Colorless",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 132,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Eevee",
+    "Type": "Colorless",
+    "HP": 70,
+    "Stage": "Basic",
+    "Number": 133,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Vaporeon",
+    "Type": "Water",
+    "HP": 130,
+    "Stage": "Stage 1",
+    "Number": 134,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Jolteon",
+    "Type": "Lightning",
+    "HP": 110,
+    "Stage": "Stage 1",
+    "Number": 135,
+    "Weakness": "Fighting",
+    "Retreat": 0
+  },
+  {
+    "Name": "Flareon",
+    "Type": "Fire",
+    "HP": 130,
+    "Stage": "Stage 1",
+    "Number": 136,
+    "Weakness": "Water",
+    "Retreat": 2
+  },
+  {
+    "Name": "Porygon",
+    "Type": "Colorless",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 137,
+    "Weakness": "Fighting",
+    "Retreat": 1
+  },
+  {
+    "Name": "Omanyte",
+    "Type": "Water",
+    "HP": 100,
+    "Stage": "Stage 1",
+    "Number": 138,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Omastar",
+    "Type": "Water",
+    "HP": 150,
+    "Stage": "Stage 2",
+    "Number": 139,
+    "Weakness": "Lightning",
+    "Retreat": 3
+  },
+  {
+    "Name": "Kabuto",
+    "Type": "Fighting",
+    "HP": 90,
+    "Stage": "Stage 1",
+    "Number": 140,
+    "Weakness": "Grass",
+    "Retreat": 2
+  },
+  {
+    "Name": "Kabutops",
+    "Type": "Fighting",
+    "HP": 160,
+    "Stage": "Stage 2",
+    "Number": 141,
+    "Weakness": "Grass",
+    "Retreat": 2
+  },
+  {
+    "Name": "Aerodactyl",
+    "Type": "Colorless",
+    "HP": 130,
+    "Stage": "Stage 1",
+    "Number": 142,
+    "Weakness": "Lightning",
+    "Retreat": 0
+  },
+  {
+    "Name": "Snorlax",
+    "Type": "Colorless",
+    "HP": 150,
+    "Stage": "Basic",
+    "Number": 143,
+    "Weakness": "Fighting",
+    "Retreat": 4
+  },
+  {
+    "Name": "Articuno",
+    "Type": "Water",
+    "HP": 120,
+    "Stage": "Basic",
+    "Number": 144,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Zapdos",
+    "Type": "Lightning",
+    "HP": 200,
+    "Stage": "Basic",
+    "Number": 145,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Moltres",
+    "Type": "Fire",
+    "HP": 120,
+    "Stage": "Basic",
+    "Number": 146,
+    "Weakness": "Lightning",
+    "Retreat": 2
+  },
+  {
+    "Name": "Dratini",
+    "Type": "Dragon",
+    "HP": 60,
+    "Stage": "Basic",
+    "Number": 147,
+    "Weakness": "None",
+    "Retreat": 1
+  },
+  {
+    "Name": "Dragonair",
+    "Type": "Dragon",
+    "HP": 100,
+    "Stage": "Stage 1",
+    "Number": 148,
+    "Weakness": "None",
+    "Retreat": 2
+  },
+  {
+    "Name": "Dragonite",
+    "Type": "Dragon",
+    "HP": 180,
+    "Stage": "Stage 2",
+    "Number": 149,
+    "Weakness": "None",
+    "Retreat": 3
+  },
+  {
+    "Name": "Mewtwo",
+    "Type": "Psychic",
+    "HP": 130,
+    "Stage": "Basic",
+    "Number": 150,
+    "Weakness": "Darkness",
+    "Retreat": 2
+  },
+  {
+    "Name": "Mew",
+    "Type": "Psychic",
+    "HP": 180,
+    "Stage": "Basic",
+    "Number": 151,
+    "Weakness": "Darkness",
+    "Retreat": 0
+  }
+]
