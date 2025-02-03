@@ -13,4 +13,8 @@ class Card:
     def evolve(self):
         pass
 
-    
+    def attach_energy(self):
+        pass
+
+    def retreat(self):
+        pass
