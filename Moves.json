@@ -1,0 +1,57 @@
+[
+  {
+    "Name": "Leech Seed",
+    "Damage": 20,
+    "Cost": "1G1N"
+  },
+  {
+    "Name": "Vine Whip",
+    "Damage": 80,
+    "Cost": "2G1N"
+  },
+  {
+    "Name": "Dangerous Toxwhip",
+    "Damage": 150,
+    "Cost": "2G1N"
+  },
+  {
+    "Name": "Steady Firebreathing",
+    "Damage": 30,
+    "Cost": "2F"
+  },
+  {
+    "Name": "Combustion",
+    "Damage": 20,
+    "Cost": "1F"
+  },
+  {
+    "Name": "Fire Blast",
+    "Damage": 90,
+    "Cost": "3F"
+  },
+  {
+    "Name": "Brave Wing",
+    "Damage": 60,
+    "Cost": "1F"
+  },
+  {
+    "Name": "Explosive Vortex",
+    "Damage": 330,
+    "Cost": "3F"
+  },
+  {
+    "Name": "Skull Bash",
+    "Damage": 20,
+    "Cost": "2W"
+  },
+  {
+    "Name": "Spinning Attack",
+    "Damage": 50,
+    "Cost": "2W"
+  },
+  {
+    "Name": "Twin Cannons",
+    "Damage": 140,
+    "Cost": "2W"
+  }
+]
