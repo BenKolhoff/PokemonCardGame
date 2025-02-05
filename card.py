@@ -7,6 +7,7 @@ class Card:
         self.weakness = weakness
         self.retreat_cost = retreat_cost
         self.evolves_from = evolves_from
+        self.energy = 0
 
     def attack(self):
         pass
@@ -26,16 +27,22 @@ class Card:
         
 
     def attach_energy(self):
-        pass
+        self.energy += 1
 
     def retreat(self):
-        pass
+        if self.energy >= self.retreat_cost:
+            # move from active to bench
+            pass
 
 
-pikachu = Card("Pikachu", "electric", 70, "stage 1", "ground", 1, None)
-raichu = Card("Raichu", "electric", 110, "basic", "ground", 1, "Pikachu")
+pikachu = Card("Pikachu", "electric", 70, "basic", "ground", 1, None)
+raichu = Card("Raichu", "electric", 110, "stage 1", "ground", 1, "Pikachu")
+charmander = Card("Charmander", "fire", 70, "basic", "water", 1, None)
 charmeleon = Card("Charmeleon", "fire", 110, "stage 1", "water", 2, "Charmander")
+charizard = Card("Charizard", "fire", 200, "stage 2", "water", 2, "Charmeleon")
 
 pikachu.evolve(raichu)
+
+charmander.evolve(charmeleon)
 
 
