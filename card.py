@@ -1,3 +1,7 @@
+import json
+from move import Move
+from state import State
+
 class Card:
     def __init__(self, name, type, hp, stage, weakness, retreat_cost, evolves_from):
         self.name = name
@@ -9,8 +13,10 @@ class Card:
         self.evolves_from = evolves_from
         self.energy = 0
 
-    def attack(self):
-        pass
+    def attack(self, target, move):
+        target.hp -= move.damage
+        print(self.name, "used", move.name, "for", move.damage, "damage")
+        print(target.name, "HP is now", target.hp)
 
     def evolve(self, new):
         if self.stage == "basic" and new.stage == "stage 1":
@@ -34,15 +40,24 @@ class Card:
             # move from active to bench
             pass
 
+    def discard(self, card):
+        # move the card to the discard pile
+        pass
 
-pikachu = Card("Pikachu", "electric", 70, "basic", "ground", 1, None)
-raichu = Card("Raichu", "electric", 110, "stage 1", "ground", 1, "Pikachu")
-charmander = Card("Charmander", "fire", 70, "basic", "water", 1, None)
-charmeleon = Card("Charmeleon", "fire", 110, "stage 1", "water", 2, "Charmander")
-charizard = Card("Charizard", "fire", 200, "stage 2", "water", 2, "Charmeleon")
 
-pikachu.evolve(raichu)
+lightning = Move("Lightning", 50, 2)
 
-charmander.evolve(charmeleon)
+with open("Pokemon.json", "r") as file:
+    data = json.load(file)
+
+pikachu = data[24]
+Pikachu = Card(pikachu["Name"], pikachu["Type"], pikachu["HP"], pikachu["Stage"], pikachu["Number"], pikachu["Weakness"], pikachu["Evolves"])
+
+raichu = data[25]
+Raichu = Card(raichu["Name"], raichu["Type"], raichu["HP"], raichu["Stage"], raichu["Number"], raichu["Weakness"], raichu["Evolves"])
+
+Pikachu.attack(Raichu, lightning)
+Raichu.attack(Pikachu, lightning)
+
 
 
