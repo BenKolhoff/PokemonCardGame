@@ -9,3 +9,9 @@ class Player:
     # set_active_card
     # bench_card
     # draw_card
+
+    def set_active_card(self, card):
+        self.active_card = card
+
+    def bench_card(self, card):
+        self.benched_cards.append(card)
