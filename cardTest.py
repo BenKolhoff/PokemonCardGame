@@ -1,9 +1,5 @@
 import unittest
-
 from card import Card
-from move import Move
-from player import Player
-from state import State
 
 
 class cardTest(unittest.TestCase):
@@ -24,3 +20,7 @@ class cardTest(unittest.TestCase):
 
     def test_discard(self):
         pass
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
