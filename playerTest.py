@@ -10,3 +10,6 @@ class testPlayer(unittest.TestCase):
     
     def test_bench_card(self):
         pass
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
