@@ -3,7 +3,7 @@ from move import Move
 from state import State
 
 class Card:
-    def __init__(self, name, type, hp, stage, weakness, retreat_cost, evolves_from):
+    def __init__(self, name, type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None):
         self.name = name
         self.type = type
         self.hp = hp
@@ -17,6 +17,7 @@ class Card:
         target.hp -= move.damage
         print(self.name, "used", move.name, "for", move.damage, "damage")
         print(target.name, "HP is now", target.hp)
+        print()
 
     def evolve(self, new):
         if self.stage == "basic" and new.stage == "stage 1":
@@ -39,25 +40,5 @@ class Card:
         if self.energy >= self.retreat_cost:
             # move from active to bench
             pass
-
-    def discard(self, card):
-        # move the card to the discard pile
-        pass
-
-
-lightning = Move("Lightning", 50, 2)
-
-with open("Pokemon.json", "r") as file:
-    data = json.load(file)
-
-pikachu = data[24]
-Pikachu = Card(pikachu["Name"], pikachu["Type"], pikachu["HP"], pikachu["Stage"], pikachu["Number"], pikachu["Weakness"], pikachu["Evolves"])
-
-raichu = data[25]
-Raichu = Card(raichu["Name"], raichu["Type"], raichu["HP"], raichu["Stage"], raichu["Number"], raichu["Weakness"], raichu["Evolves"])
-
-Pikachu.attack(Raichu, lightning)
-Raichu.attack(Pikachu, lightning)
-
 
 
