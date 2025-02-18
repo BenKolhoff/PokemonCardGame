@@ -3,14 +3,14 @@ from move import Move
 from state import State
 
 class Card:
-    def __init__(self, name, type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None):
-        self.name = name
-        self.type = type
-        self.hp = hp
-        self.stage = stage
-        self.weakness = weakness
-        self.retreat_cost = retreat_cost
-        self.evolves_from = evolves_from
+    def __init__(self, name, card_type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None):
+        self.name = name if type(name) == str else None
+        self.type = card_type if type(card_type) == str else None
+        self.hp = hp if type(hp) == int else None
+        self.stage = stage if type(stage) == int else None
+        self.weakness = weakness if type(weakness) == str or weakness == None else None
+        self.retreat_cost = retreat_cost if type(retreat_cost) == int or retreat_cost == None else None
+        self.evolves_from = evolves_from if type(evolves_from) == str or evolves_from == None else None
         self.energy = 0
 
     def attack(self, target, move):

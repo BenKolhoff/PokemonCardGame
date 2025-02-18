@@ -3,7 +3,7 @@ class Player:
         self.active_card = None
         self.benched_cards = []
         self.hand = []
-        self.deck = deck
+        self.deck = deck if type(deck) == list else []
         self.discard = []
         self.points = 0
     
