@@ -41,4 +41,6 @@ class Card:
             # move from active to bench
             pass
 
+    def __str__(self):
+        return self.name
 

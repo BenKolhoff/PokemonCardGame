@@ -2,6 +2,7 @@ from card import Card
 from player import Player
 from move import Move
 from state import State
+from game import Game
 import pygame
 import sys
 
@@ -16,13 +17,13 @@ screen.fill(bg_color)
 pygame.display.flip()
 
 running = True
-state = State()
+game = Game()
 zap = Move("Zap", 50, 1)
 pikachu = Card("Pikachu", "Lightning", 100, "basic")
 raichu = Card("Raichu", "Lightning", 150, "stage 1")
 
-state.playerA.active_card = pikachu
-state.playerB.active_card = raichu
+game.state.playerA.active_card = pikachu
+game.state.playerB.active_card = raichu
 
 while running:
     for event in pygame.event.get():
@@ -36,21 +37,21 @@ while running:
     action = input("Enter Action>>>")
 
     if action == "attack":
-        if state.current_player == state.playerA:
-            state.playerA.active_card.attack(state.playerB.active_card, zap)
-            state.change_player()
-        elif state.current_player == state.playerB:
-            state.playerB.active_card.attack(state.playerA.active_card, zap)
-            state.change_player()
+        if game.state.current_player == game.state.playerA:
+            game.state.playerA.active_card.attack(game.state.playerB.active_card, zap)
+            game.state.change_player()
+        elif game.state.current_player == game.state.playerB:
+            game.state.playerB.active_card.attack(game.state.playerA.active_card, zap)
+            game.state.change_player()
     
-    if state.playerA.active_card.hp <= 0:
-        state.playerB.increase_points()
-        print("Player B Points:", state.playerB.points)
+    if game.state.playerA.active_card.hp <= 0:
+        game.state.playerB.increase_points()
+        print("Player B Points:", game.state.playerB.points)
     
-    elif state.playerB.active_card.hp <= 0:
-        state.playerA.increase_points()
-        print("Player A Points:", state.playerA.points)
+    elif game.state.playerB.active_card.hp <= 0:
+        game.state.playerA.increase_points()
+        print("Player A Points:", game.state.playerA.points)
 
-    if state.playerA.points >= 3 or state.playerB.points >= 3:
+    if game.state.playerA.points >= 3 or game.state.playerB.points >= 3:
         running = False
 
