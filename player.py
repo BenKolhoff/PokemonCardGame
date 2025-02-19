@@ -28,3 +28,6 @@ class Player:
             self.active_card = None
         elif card in self.benched_cards:
             self.benched_cards.remove(card)
+    
+    def set_deck(self, deck):
+        self.deck = deck
