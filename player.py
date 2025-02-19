@@ -31,3 +31,18 @@ class Player:
     
     def set_deck(self, deck):
         self.deck = deck
+    
+    def draw_card(self):
+        if self.deck[0] == None:
+            print("Cannot draw, your deck is empty")
+            return
+
+        deck_top = self.deck[0]
+        self.hand.append(deck_top)
+        self.deck.remove(deck_top)
+
+    def print_hand(self):
+        for card in self.hand:
+            print(card['Name'], end=' ')
+        
+        print("")

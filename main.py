@@ -33,7 +33,7 @@ while running:
             pygame.quit()
             sys.exit()
 
-    valid_actions = ["attack", "retreat", "state"]
+    valid_actions = ["attack", "retreat", "state", "hand", "draw"]
     action = input("Enter Action>>>")
 
     if action == "attack":
@@ -45,6 +45,10 @@ while running:
             game.state.change_player()
     elif action == "state":
         game.state.print_state()
+    elif action == "hand":
+        game.state.current_player.print_hand()
+    elif action == "draw":
+        game.state.current_player.draw_card()
     
     if game.state.playerA.active_card.hp <= 0:
         game.state.playerB.increase_points()

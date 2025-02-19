@@ -18,6 +18,11 @@ class State:
                 deck.append(game.pokemon[random.randint(0, len(game.pokemon) - 1)])
             
             player.set_deck(deck)
+        
+        # Have each player automatically draw 7 cards
+        for player in self.__player_list:
+            for i in range(0, 7):
+                player.draw_card()
 
     '''
     Changes the current player to the opposite player.
