@@ -1,7 +1,3 @@
-import json
-from move import Move
-from state import State
-
 class Card:
     def __init__(self, name, card_type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None):
         self.name = name if type(name) == str else None

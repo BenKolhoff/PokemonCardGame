@@ -7,8 +7,22 @@ class Player:
         self.discard = []
         self.points = 0
 
-    def set_active_card(self, card):
-        self.active_card = card
+    '''
+    Sets the player's active card if they specify a valid index and don't already have a card.
+    '''
+    def set_active_card(self, index):
+        if self.active_card != None:
+            print("You already have an active card. You must retreat that first.")
+        elif type(index) != int:
+            print("Index must be an integer")
+        elif len(self.hand) == 0:
+            print("You cannot set an active card with an empty hand.")
+        elif index < 0 or index >= len(self.hand):
+            print("The specified index is out of bounds of your hand")
+        else:
+            self.active_card = self.hand[index]
+            self.hand.pop(index)
+            print("Your active card is now " + self.active_card.name)
 
     def bench_card(self, card):
         self.benched_cards.append(card)
@@ -47,6 +61,6 @@ class Player:
     '''
     def print_hand(self):
         for card in self.hand:
-            print(card['Name'], end=' ')
+            print(card, end=' ')
         
         print("")

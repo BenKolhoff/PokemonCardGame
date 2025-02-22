@@ -1,3 +1,4 @@
+from card import Card
 from player import Player
 import random
 
@@ -14,8 +15,11 @@ class State:
         # Randomly create the decks of each player
         for player in self.__player_list:
             deck = []
-            for i in range(0, 60):    
-                deck.append(game.pokemon[random.randint(0, len(game.pokemon) - 1)])
+            for i in range(0, 60):   
+                card_data = game.pokemon[random.randint(0, len(game.pokemon) - 1)]
+                new_card = Card(card_data['Name'], card_data['Type'], card_data['HP'], card_data['Stage'], 
+                                card_data['Weakness'], card_data['Retreat'])
+                deck.append(new_card)
             
             player.set_deck(deck)
         
