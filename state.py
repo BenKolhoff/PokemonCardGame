@@ -15,7 +15,8 @@ class State:
         # Randomly create the decks of each player
         for player in self.__player_list:
             deck = []
-            for i in range(0, 60):   
+            for i in range(0, 60):  
+                # Get data of a random object in the JSON card list, and then make a Card object from that
                 card_data = game.pokemon[random.randint(0, len(game.pokemon) - 1)]
                 new_card = Card(card_data['Name'], card_data['Type'], card_data['HP'], card_data['Stage'], 
                                 card_data['Weakness'], card_data['Retreat'])
@@ -39,7 +40,7 @@ class State:
     '''
     def print_state(self):
         for i in range(0, len(self.__player_list)):
-            print(f"--- Player {"A" if i == 0 else "B"} ---")
+            print(f"--- Player {"A" if i == 0 else "B"} ---{" (Current Turn)" if self.current_player == self.__player_list[i] else ""}")
             print(f"Active Card: {self.__player_list[i].active_card}")
             print("Benched Cards: ", end='')
             for card in self.__player_list[i].benched_cards:
