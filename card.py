@@ -1,5 +1,5 @@
 class Card:
-    def __init__(self, name, card_type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None):
+    def __init__(self, name, card_type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None, moves=[]):
         self.name = name if type(name) == str else None
         self.type = card_type if type(card_type) == str else None
         self.hp = hp if type(hp) == int else None
@@ -8,6 +8,7 @@ class Card:
         self.retreat_cost = retreat_cost if type(retreat_cost) == int or retreat_cost == None else None
         self.evolves_from = evolves_from if type(evolves_from) == str or evolves_from == None else None
         self.energy = 0
+        self.moves = moves if type(moves) == list else []
 
     '''
     Attacks another card (lowers their HP by the amount of damage caused by the used move).
@@ -49,5 +50,9 @@ class Card:
             pass
 
     def __str__(self):
-        return self.name
+        card_str = f"{self.name}::"
+        for move in self.moves:
+            card_str += str(move) + " "
+
+        return card_str
 

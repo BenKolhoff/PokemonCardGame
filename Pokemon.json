@@ -6,7 +6,8 @@
     "Stage": "Basic",
     "Number": 1,
     "Weakness": "Fire",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Leech Seed"]
   },
   {
     "Name": "Ivysaur",
@@ -15,7 +16,8 @@
     "Stage": "Stage 1",
     "Number": 2,
     "Weakness": "Fire",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": ["Leech Seed", "Vine Whip"]
   },
   {
     "Name": "Venasaur",
@@ -24,7 +26,8 @@
     "Stage": "Stage 2",
     "Number": 3,
     "Weakness": "Fire",
-    "Retreat": 4
+    "Retreat": 4,
+    "Moves": ["Dangerous Toxwhip"]
   },
   {
     "Name": "Charmander",
@@ -33,7 +36,8 @@
     "Stage": "Basic",
     "Number": 4,
     "Weakness": "Water",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Steady Firebreathing"]
   },
   {
     "Name": "Charmeleon",
@@ -42,7 +46,8 @@
     "Stage": "Stage 1",
     "Number": 5,
     "Weakness": "Water",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Combustion", "Fire Blast"]
   },
   {
     "Name": "Charizard",
@@ -51,7 +56,8 @@
     "Stage": "Stage 2",
     "Number": 6,
     "Weakness": "Water",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Brave Wing", "Explosive Vortex"]
   },
   {
     "Name": "Squirtle",
@@ -60,7 +66,8 @@
     "Stage": "Basic",
     "Number": 7,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Skull Bash"]
   },
   {
     "Name": "Wartortle",
@@ -69,7 +76,8 @@
     "Stage": "Stage 1",
     "Number": 8,
     "Weakness": "Lightning",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Spinning Attack"]
   },
   {
     "Name": "Blastoise",
@@ -78,7 +86,8 @@
     "Stage": "Stage 2",
     "Number": 9,
     "Weakness": "Lightning",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": ["Twin Cannons"]
   },
   {
     "Name": "Caterpie",
@@ -87,7 +96,8 @@
     "Stage": "Basic",
     "Number": 10,
     "Weakness": "Fire",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Leaf Munch"]
   },
   {
     "Name": "Metapod",
@@ -96,7 +106,8 @@
     "Stage": "Stage 1",
     "Number": 11,
     "Weakness": "Fire",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": ["Tackle"]
   },
   {
     "Name": "Butterfree",
@@ -105,7 +116,8 @@
     "Stage": "Stage 2",
     "Number": 12,
     "Weakness": "Fire",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Whirlwind"]
   },
   {
     "Name": "Weedle",
@@ -114,7 +126,8 @@
     "Stage": "Basic",
     "Number": 13,
     "Weakness": "Fire",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Ram", "Bug Bite"]
   },
   {
     "Name": "Kakuna",
@@ -123,7 +136,8 @@
     "Stage": "Stage 1",
     "Number": 14,
     "Weakness": "Fire",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": ["Zzzt"]
   },
   {
     "Name": "Beedrill",
@@ -132,7 +146,8 @@
     "Stage": "Stage 2",
     "Number": 15,
     "Weakness": "Fire",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Naidr Needle", "Pierce"]
   },
   {
     "Name": "Pidgey",
