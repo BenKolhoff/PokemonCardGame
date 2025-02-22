@@ -3,7 +3,7 @@ class Card:
         self.name = name if type(name) == str else None
         self.type = card_type if type(card_type) == str else None
         self.hp = hp if type(hp) == int else None
-        self.stage = stage if type(stage) == int else None
+        self.stage = stage if type(stage) == str else None
         self.weakness = weakness if type(weakness) == str or weakness == None else None
         self.retreat_cost = retreat_cost if type(retreat_cost) == int or retreat_cost == None else None
         self.evolves_from = evolves_from if type(evolves_from) == str or evolves_from == None else None
@@ -23,17 +23,27 @@ class Card:
     Evolves the card into the specified evolution.
     '''
     def evolve(self, new):
-        if self.stage == "basic" and new.stage == "stage 1":
-            if new.evolves_from == self.name:
-                print(self.name, "evolved to", new.name)
-                self = new
-            else:
-                print(self.name, "doesnt evolve from", new.name)
-        elif self.stage == "stage 1" and new.stage == "stage 2":
-            print(self.name, "evolved to", new.name)
-            self = new
+        if self.stage == "Basic" and new.stage == "Stage 1" and new.evolves_from == self.name:
+            print(f"{self.name} evolved into {new.name}")
+            self.name = new.name
+            self.type = new.type
+            self.hp = new.hp
+            self.stage = new.stage
+            self.weakness = new.weakness
+            self.retreat_cost = new.retreat_cost
+            self.evolves_from = new.evolves_from
+        elif self.stage == "Stage 1" and new.stage == "Stage 2" and new.evolves_from == self.name:
+            print(f"{self.name} evolved into {new.name}")
+            self.name = new.name
+            self.type = new.type
+            self.hp = new.hp
+            self.stage = new.stage
+            self.weakness = new.weakness
+            self.retreat_cost = new.retreat_cost
+            self.evolves_from = new.evolves_from
         else:
-            print(self.stage, "can't evolve to a", new.stage)
+            print(f"{self.name} cannot evolve into {new.name}")
+
         
     '''
     Attaches energy to this card (increases energy by one).
