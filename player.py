@@ -30,7 +30,7 @@ class Player:
     def increase_points(self):
         self.points += 1
 
-    def discard(self, card):
+    def discard_card(self, card):
         self.discard.append(card)
 
         if card == self.active_card:
