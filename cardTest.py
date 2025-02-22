@@ -6,6 +6,7 @@ class TestCard(unittest.TestCase):
     def setUp(self):
         self.card1 = Card("Bulbasaur", "Grass", 70, "Basic", "Fire", 2)
         self.card2 = Card("Charmander", "Fire", 60, "Basic", "Water", 1)
+        self.card3 = Card("Ivysaur", "Grass", 100, "Stage 1", "Fire", 3, "Bulbasaur")
         self.move = Move("Vine Whip", 30, 2)
     
     def test_initialization(self):
@@ -31,6 +32,13 @@ class TestCard(unittest.TestCase):
         self.assertEqual(self.card1.name, "Ivysaur")
         self.assertEqual(self.card1.hp, 100)
         self.assertEqual(self.card1.stage, "Stage 1")
+
+    def test_evolve_stage1(self):
+        evolved_card = Card("Venasaur", "Grass", 340, "Stage 2", "Fire", 4, "Ivysaur")
+        self.card3.evolve(evolved_card)
+        self.assertEqual(self.card3.name, "Venasaur")
+        self.assertEqual(self.card3.hp, 340)
+        self.assertEqual(self.card3.stage, "Stage 2")
     
     def test_retreat(self):
         self.card1.energy = 2
@@ -38,4 +46,4 @@ class TestCard(unittest.TestCase):
         self.assertEqual(self.card1.energy, 2)  # Need to implement full logic for this
 
 if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    unittest.main()
