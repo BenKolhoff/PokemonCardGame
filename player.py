@@ -61,6 +61,4 @@ class Player:
     '''
     def print_hand(self):
         for card in self.hand:
-            print(card, end=' ')
-        
-        print("")
+            print(card)

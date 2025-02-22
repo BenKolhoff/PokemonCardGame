@@ -19,6 +19,10 @@ pygame.display.flip()
 running = True
 game = Game()
 attack_move = Move("Attack", 50, 1)
+bulbasaur = Card(game.pokemon[0]['Name'], game.pokemon[0]['Type'], game.pokemon[0]['HP'], game.pokemon[0]['Stage'], 
+                                game.pokemon[0]['Weakness'], game.pokemon[0]['Retreat'])
+game.state.playerA.active_card = bulbasaur
+game.state.playerB.active_card = bulbasaur
 # pikachu = Card("Pikachu", "Lightning", 100, "basic")
 # raichu = Card("Raichu", "Lightning", 150, "stage 1")
 

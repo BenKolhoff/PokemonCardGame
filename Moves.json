@@ -53,5 +53,45 @@
     "Name": "Twin Cannons",
     "Damage": 140,
     "Cost": "2W"
+  },
+  {
+    "Name": "Leaf Munch",
+    "Damage": 10,
+    "Cost": "1G"
+  },
+  {
+    "Name": "Tackle",
+    "Damage": 20,
+    "Cost": "1G"
+  },
+  {
+    "Name": "Whirlwind",
+    "Damage": 60,
+    "Cost": "1G"
+  },
+  {
+    "Name": "Ram",
+    "Damage": 10,
+    "Cost": "1G"
+  },
+  {
+    "Name": "Bug Bite",
+    "Damage": 20,
+    "Cost": "2N"
+  },
+  {
+    "Name": "Zzzt",
+    "Damage": 20,
+    "Cost": "2N"
+  },
+  {
+    "Name": "Nadir Needle",
+    "Damage": 30,
+    "Cost": "2N"
+  },
+  {
+    "Name": "Pierce",
+    "Damage": 110,
+    "Cost": "2G"
   }
 ]
