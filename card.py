@@ -1,3 +1,5 @@
+from move import Move
+
 class Card:
     def __init__(self, name, card_type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None, moves=[]):
         self.name = name if type(name) == str else None
@@ -9,6 +11,9 @@ class Card:
         self.evolves_from = evolves_from if type(evolves_from) == str or evolves_from == None else None
         self.energy = 0
         self.moves = moves if type(moves) == list else []
+
+        if len(self.moves) == 0:
+            self.moves.append(Move("Attack", 50, '1N'))
 
     '''
     Attacks another card (lowers their HP by the amount of damage caused by the used move).

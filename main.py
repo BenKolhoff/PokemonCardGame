@@ -1,7 +1,5 @@
 from card import Card
-from player import Player
 from move import Move
-from state import State
 from game import Game
 import pygame
 import sys
@@ -18,16 +16,10 @@ pygame.display.flip()
 
 running = True
 game = Game()
-attack_move = Move("Attack", 50, 1)
 bulbasaur = Card(game.pokemon[0]['Name'], game.pokemon[0]['Type'], game.pokemon[0]['HP'], game.pokemon[0]['Stage'], 
-                                game.pokemon[0]['Weakness'], game.pokemon[0]['Retreat'])
+                                game.pokemon[0]['Weakness'], game.pokemon[0]['Retreat'], None, Move(game.pokemon[0]['Moves'], 20, '1G1N'))
 game.state.playerA.active_card = bulbasaur
 game.state.playerB.active_card = bulbasaur
-# pikachu = Card("Pikachu", "Lightning", 100, "basic")
-# raichu = Card("Raichu", "Lightning", 150, "stage 1")
-
-# game.state.playerA.active_card = pikachu
-# game.state.playerB.active_card = raichu
 
 while running:
     for event in pygame.event.get():
@@ -39,27 +31,30 @@ while running:
 
     valid_actions = ["attack", "retreat", "state", "hand", "draw"]
     action = input("Enter Action>>>")
+    action = action.split(' ')
 
-    if action == "attack":
-        if game.state.current_player.active_card != None:
-            if game.state.current_player == game.state.playerA:
-                game.state.playerA.active_card.attack(game.state.playerB.active_card, attack_move)
+    if action[0] == "attack" and len(action) > 1:
+        if game.state.current_player.active_card != None: # Check if current player has an active card
+            if 0 <= int(action[1]) < len(game.state.current_player.active_card.moves):
+                move = game.state.current_player.active_card.moves[int(action[1])]
+                other_player = game.state.get_player_list()[0] if game.state.current_player != game.state.get_player_list()[0] else game.state.get_player_list()[1]
+                
+                game.state.current_player.active_card.attack(other_player.active_card, move)
                 game.state.change_player()
-            elif game.state.current_player == game.state.playerB:
-                game.state.playerB.active_card.attack(game.state.playerA.active_card, attack_move)
-                game.state.change_player()
-    elif action == "state":
+            else: print("Error: The specified move is not valid for the active card")
+        else: print("Error: You cannot attack without an active card")
+    elif action[0] == "state":
         game.state.print_state()
-    elif action == "hand":
+    elif action[0] == "hand":
         game.state.current_player.print_hand()
-    elif action == "draw":
+    elif action[0] == "draw":
         game.state.current_player.draw_card()
-    elif action[0] == "a" and len(action) > 1:
-        index = action[1:len(action)]
-        index = int(index)
-        game.state.current_player.set_active_card(index)
+    elif action[0] == "active" and len(action) > 1:
+        game.state.current_player.set_active_card(int(action[1]))
     elif action == "pass":
         game.state.change_player()
+    else:
+        print("Error: That is not a valid action")
     
     if game.state.playerA.active_card.hp <= 0:
         game.state.playerB.increase_points()
@@ -71,4 +66,3 @@ while running:
 
     if game.state.playerA.points >= 3 or game.state.playerB.points >= 3:
         running = False
-

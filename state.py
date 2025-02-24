@@ -58,6 +58,7 @@ class State:
             for card in self.__player_list[i].benched_cards:
                 print(f"{card} ", end='')
             print("")
-            # Need way to handle hand so that the player calling this method can only see their hand
             print(f"Remaining cards in deck: {len(self.__player_list[i].deck)}")
 
+    def get_player_list(self):
+        return self.__player_list
