@@ -7,11 +7,12 @@ import random
 Represents the state of the game, not meant to be instantiated outside of the Game class.
 '''
 class State:
-    def __init__(self, game, current_player=None):
+    def __init__(self, game, activate_card_phase=True, current_player=None):
         self.playerA = Player()
         self.playerB = Player()
         self.__player_list = [self.playerA, self.playerB]
         self.current_player = self.playerA if current_player is None else current_player
+        self.activate_card_phase = activate_card_phase if type(activate_card_phase) == bool else True
 
         # Randomly create the decks of each player
         for player in self.__player_list:
@@ -20,7 +21,7 @@ class State:
                 # Get data of a random object in the JSON card list, and then make a Card object from that
                 card_data = game.pokemon[random.randint(0, len(game.pokemon) - 1)]
                 new_card = Card(card_data['Name'], card_data['Type'], card_data['HP'], card_data['Stage'], 
-                                card_data['Weakness'], card_data['Retreat'])
+                                card_data['Weakness'], card_data['Retreat'], None, None, player)
                 
                 if 'Moves' in card_data:
                     temp_moves = []
@@ -57,7 +58,7 @@ class State:
             print("Benched Cards: ", end='')
             for card in self.__player_list[i].benched_cards:
                 print(f"{card} ", end='')
-            print("")
+            print(f"\nPoints: {self.__player_list[i].points}")
             print(f"Remaining cards in deck: {len(self.__player_list[i].deck)}")
 
     def get_player_list(self):

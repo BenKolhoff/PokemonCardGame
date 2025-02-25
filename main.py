@@ -16,10 +16,6 @@ pygame.display.flip()
 
 running = True
 game = Game()
-bulbasaur = Card(game.pokemon[0]['Name'], game.pokemon[0]['Type'], game.pokemon[0]['HP'], game.pokemon[0]['Stage'], 
-                                game.pokemon[0]['Weakness'], game.pokemon[0]['Retreat'], None, Move(game.pokemon[0]['Moves'], 20, '1G1N'))
-game.state.playerA.active_card = bulbasaur
-game.state.playerB.active_card = bulbasaur
 
 while running:
     for event in pygame.event.get():
@@ -51,18 +47,14 @@ while running:
         game.state.current_player.draw_card()
     elif action[0] == "active" and len(action) > 1:
         game.state.current_player.set_active_card(int(action[1]))
-    elif action == "pass":
+
+        if game.state.activate_card_phase == True:
+            game.state.change_player()
+            game.state.activate_card_phase = not (game.state.get_player_list()[0].active_card != None and game.state.get_player_list()[1].active_card != None)
+    elif action[0] == "pass":
         game.state.change_player()
     else:
         print("Error: That is not a valid action")
-    
-    if game.state.playerA.active_card.hp <= 0:
-        game.state.playerB.increase_points()
-        print("Player B Points:", game.state.playerB.points)
-    
-    elif game.state.playerB.active_card.hp <= 0:
-        game.state.playerA.increase_points()
-        print("Player A Points:", game.state.playerA.points)
 
     if game.state.playerA.points >= 3 or game.state.playerB.points >= 3:
         running = False
