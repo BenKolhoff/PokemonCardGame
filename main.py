@@ -57,4 +57,5 @@ while running:
         print("Error: That is not a valid action")
 
     if game.state.playerA.points >= 3 or game.state.playerB.points >= 3:
+        print(f"{"Player A" if game.state.playerA.points >= 3 else "Player B"} won!")
         running = False
