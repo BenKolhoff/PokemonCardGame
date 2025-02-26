@@ -28,8 +28,10 @@ class Card:
             print("Error: Invalid move")
             return
 
-        target.take_damage(move.damage)
-        print(self.name, "used", move.name, "for", move.damage, "damage")
+        target_is_weak = target.weakness == self.type
+        damage = int(move.damage * 1.5) if target_is_weak else move.damage 
+        target.take_damage(damage)
+        print(self.name, "used", move.name, "for", damage, "damage", f"{"(1.5x!)" if target_is_weak else ""}")
         print(target.name, "HP is now", target.hp)
         
         if target.owner.active_card == None:
