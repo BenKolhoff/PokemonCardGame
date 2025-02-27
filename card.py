@@ -1,6 +1,26 @@
 from move import Move
 from player import Player
 
+'''
+A class representing Pokemon cards.
+
+Attributes
+name (str) - The name of the card
+card_type (str) - The type of the card
+hp (int) - The starting health of the card
+weakness (str) - The card's type weakness
+retreat_cost (int) - The cost to retreat the card
+evolves_from (str) - The name of the card this card evolves from
+moves (Move[]) - The list of moves the card can use
+owner (Player) - The player who owns this card
+
+Methods
+attack (target: Card, move: Move) -> None - Attacks the target with the specified move
+evolve (new: Card) -> None - Evolves the card into the specified card
+take_damage (amount: int) -> None - Subtracts the specified amount from the card's HP
+attach_energy -> None - Increases the energy of this card by 1
+retreat -> None - Retreats the card to the owner's bench
+'''
 class Card:
     def __init__(self, name, card_type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None, moves=[], owner=None):
         self.name = name if type(name) == str else None
@@ -19,6 +39,11 @@ class Card:
 
     '''
     Attacks another card (lowers their HP by the amount of damage caused by the used move).
+
+    target (Card) - The target card to attack
+    move (Move) - The move the card will use
+
+    return: None
     '''
     def attack(self, target, move):
         if target == None:
@@ -41,6 +66,10 @@ class Card:
 
     '''
     Evolves the card into the specified evolution.
+
+    new (Card) - The card to evolve into (must be equivalent to this card's "evolves_from" value)
+
+    return: None
     '''
     def evolve(self, new):
         if self.stage == "Basic" and new.stage == "Stage 1" and new.evolves_from == self.name:
@@ -66,6 +95,10 @@ class Card:
 
     '''
     Subtracts the specified damage from the card's HP, and discards it if its HP falls below 0.
+
+    amount (int) - The amount of damage to be subtracted from this card's HP
+
+    return: None
     '''
     def take_damage(self, amount):
         if type(amount) == int:
@@ -77,12 +110,16 @@ class Card:
 
     '''
     Attaches energy to this card (increases energy by one).
+
+    return: None
     '''
     def attach_energy(self):
         self.energy += 1
 
     '''
     Moves the card from being "active" to the bench.
+
+    return: None
     '''
     def retreat(self):
         if self.energy >= self.retreat_cost:

@@ -5,6 +5,17 @@ import random
 
 '''
 Represents the state of the game, not meant to be instantiated outside of the Game class.
+
+Attributes:
+playerA (Player) - An instance of the Player class
+playerB (Player) - An instance of the Player class
+current_player (Player) - The playe rwhose turn it is
+activate_card_phase (bool) - A boolean which dictates whether or not it is the starting activation phase or not
+
+Methods:
+change_player -> None - Changes the current player to the opposite player
+print_state -> None - Prints the current state of the game in an easy-to-read format
+get_player_list -> Player[] - Returns the list of players
 '''
 class State:
     def __init__(self, game, activate_card_phase=True, current_player=None):
@@ -44,12 +55,16 @@ class State:
 
     '''
     Changes the current player to the opposite player.
+
+    return: None
     '''
     def change_player(self):
         self.current_player = self.playerA if self.current_player == self.playerB else self.playerB
     
     '''
     Print the state of the game in an easy-to-read format.
+
+    return: None
     '''
     def print_state(self):
         for i in range(0, len(self.__player_list)):
@@ -61,5 +76,10 @@ class State:
             print(f"\nPoints: {self.__player_list[i].points}")
             print(f"Remaining cards in deck: {len(self.__player_list[i].deck)}")
 
+    '''
+    Returns the list of players.
+
+    return: Player[]
+    '''
     def get_player_list(self):
         return self.__player_list
