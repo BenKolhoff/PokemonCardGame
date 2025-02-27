@@ -100,13 +100,10 @@ class Card:
 
     return: None
     '''
-    def take_damage(self, amount):
-        if type(amount) == int:
-            self.hp -= amount
-            self.hp = max(self.hp, 0)
-
-            if self.hp <= 0:
-                self.owner.discard_card(self)
+    def take_damage(self, damage):
+        self.hp = max(0, self.hp - damage)
+        if self.hp == 0 and self.owner is not None:
+            self.owner.discard_card(self)
 
     '''
     Attaches energy to this card (increases energy by one).
