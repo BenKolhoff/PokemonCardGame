@@ -97,7 +97,7 @@ class Player:
     return: None
     '''
     def draw_card(self):
-        if self.deck[0] == None:
+        if not self.deck:  # Check if the deck is empty
             print("Cannot draw, your deck is empty")
             return
 
