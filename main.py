@@ -20,7 +20,7 @@ class PokemonCardGame:
         self.running = True
         self.game = Game()
 
-        self.hello_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 275), (200, 50)), text='Hello World', manager=ui_manager)
+        self.hello_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 275), (200, 50)), text='Hello World', manager=self.ui_manager)
 
     def events(self):
         for event in pygame.event.get():
