@@ -1,30 +1,26 @@
-from card import Card
-from move import Move
 from game import Game
 import pygame
+import pygame_gui
 import sys
 
-screen = pygame.display.set_mode((300, 300))
+SCREEN_SIZE = (640, 360)
+BG_COLOR = pygame.Color('#ffffff')
 
-bg_color = (255, 255, 255)
+pygame.init()
+screen = pygame.display.set_mode(SCREEN_SIZE)
+ui_manager = pygame_gui.UIManager(SCREEN_SIZE)
 
 pygame.display.set_caption('Pokemon Card Game')
+background = pygame.Surface(SCREEN_SIZE)
+background.fill(BG_COLOR)
 
-screen.fill(bg_color)
-
-pygame.display.flip()
-
+clock = pygame.time.Clock()
 running = True
 game = Game()
 
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+hello_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 275), (200, 50)), text='Hello World', manager=ui_manager)
 
-            pygame.quit()
-            sys.exit()
-
+def text_input():
     valid_actions = ["attack", "retreat", "state", "hand", "draw"]
     action = input("Enter Action>>>")
     action = action.split(' ')
@@ -59,3 +55,26 @@ while running:
     if game.state.playerA.points >= 3 or game.state.playerB.points >= 3:
         print(f"{"Player A" if game.state.playerA.points >= 3 else "Player B"} won!")
         running = False
+
+while running:
+    time_delta = clock.tick(60)/1000.0
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+            pygame.quit()
+            sys.exit()
+        
+        if event.type == pygame_gui.UI_BUTTON_PRESSED:
+            if event.ui_element == hello_button:
+                print('Hello World')
+
+        ui_manager.process_events(event)
+
+    ui_manager.update(time_delta)
+
+    screen.blit(background, (0, 0))
+    ui_manager.draw_ui(screen)
+
+    pygame.display.update()
