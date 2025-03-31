@@ -19,8 +19,8 @@ get_player_list -> Player[] - Returns the list of players
 '''
 class State:
     def __init__(self, game, activate_card_phase=True, current_player=None):
-        self.playerA = Player()
-        self.playerB = Player()
+        self.playerA = Player('A')
+        self.playerB = Player('B')
         self.__player_list = [self.playerA, self.playerB]
         self.current_player = self.playerA if current_player is None else current_player
         self.activate_card_phase = activate_card_phase if type(activate_card_phase) == bool else True

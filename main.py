@@ -1,26 +1,31 @@
 from game import Game
+from menu_manager import MenuManager
 import pygame
 import pygame_gui
 import sys
 
 class PokemonCardGame:
     def __init__(self):
-        SCREEN_SIZE = (640, 360)
-        BG_COLOR = pygame.Color('#ffffff')
+        self.SCREEN_SIZE = (640, 360)
+        self.BG_COLOR = pygame.Color('#ffffff')
 
         pygame.init()
-        self.screen = pygame.display.set_mode(SCREEN_SIZE)
-        self.ui_manager = pygame_gui.UIManager(SCREEN_SIZE)
+        self.screen = pygame.display.set_mode(self.SCREEN_SIZE)
+        self.ui_manager = pygame_gui.UIManager(self.SCREEN_SIZE)
 
         pygame.display.set_caption('Pokemon Card Game')
-        self.background = pygame.Surface(SCREEN_SIZE)
-        self.background.fill(BG_COLOR)
+        self.background = pygame.Surface(self.SCREEN_SIZE)
+        self.background.fill(self.BG_COLOR)
 
         self.clock = pygame.time.Clock()
         self.running = True
         self.game = Game()
 
-        self.hello_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 275), (200, 50)), text='Hello World', manager=self.ui_manager)
+        self.menu_manager = MenuManager(self.game, self.SCREEN_SIZE, self.ui_manager)
+        self.current_menu = self.menu_manager.create_start_menu()
+
+    def start_game(self):
+        self.current_menu = self.menu_manager.create_game_menu()
 
     def events(self):
         for event in pygame.event.get():
@@ -31,8 +36,8 @@ class PokemonCardGame:
                 sys.exit()
             
             if event.type == pygame_gui.UI_BUTTON_PRESSED:
-                if event.ui_element == self.hello_button:
-                    print('Hello World')
+                if event.ui_element.text == "Start":
+                    self.start_game()
             
             self.ui_manager.process_events(event)
 
