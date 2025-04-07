@@ -35,11 +35,15 @@ class PokemonCardGame:
         self.message_log.append(message)
 
     def draw_message(self):
-        # Display only the most recent message
+        # Display only the most recent message at the bottom middle of the screen.
         if self.message_log:
             msg = self.message_log[-1]
             text_surface = self.font.render(msg, True, (255, 0, 0))
-            self.screen.blit(text_surface, (20, 20))
+            text_rect = text_surface.get_rect()
+            screen_width = self.screen.get_width()
+            screen_height = self.screen.get_height()
+            text_rect.midbottom = (screen_width // 2, screen_height - 60)
+            self.screen.blit(text_surface, text_rect)
 
     def draw_attack_button(self):
         # Draw a green button with white "Attack" text.
@@ -81,6 +85,29 @@ class PokemonCardGame:
         # Adjust the positions as needed.
         self.screen.blit(a_surface, (20, 80))
         self.screen.blit(b_surface, (500, 80))
+
+    def draw_active_cards(self):
+        player_a = self.game.state.playerA
+        player_b = self.game.state.playerB
+        active_a = player_a.active_card.name if player_a.active_card else "None"
+        active_b = player_b.active_card.name if player_b.active_card else "None"
+        a_text = f"Player A Active: {active_a}"
+        b_text = f"Player B Active: {active_b}"
+        a_surface = self.font.render(a_text, True, (0, 0, 0))
+        b_surface = self.font.render(b_text, True, (0, 0, 0))
+        # Adjust the positions as needed.
+        self.screen.blit(a_surface, (20, 110))
+        self.screen.blit(b_surface, (500, 110))
+
+    def draw_hand_options(self):
+        """Display the current player's hand as selectable options."""
+        hand = self.game.state.current_player.hand
+        # Start drawing from a Y position; adjust as needed.
+        start_y = 150
+        for index, card in enumerate(hand):
+            card_text = f"{index}: {card.name}"
+            text_surface = self.font.render(card_text, True, (0, 0, 0))
+            self.screen.blit(text_surface, (20, start_y + index * 20))
 
     def attack_action(self):
         current_card = self.game.state.current_player.active_card
@@ -179,6 +206,8 @@ class PokemonCardGame:
             self.screen.fill(self.bg_color)
             self.draw_turn_info()  # Draw the current player's turn
             self.draw_points()     # Display players' points
+            self.draw_active_cards()  # Display both players' active cards
+            self.draw_hand_options()    # Display current player's hand options
             self.draw_attack_button()
             self.draw_active_button()
             if self.input_active:
@@ -189,7 +218,7 @@ class PokemonCardGame:
             if self.game.state.playerA.points >= 3 or self.game.state.playerB.points >= 3:
                 winner = "Player A" if self.game.state.playerA.points >= 3 else "Player B"
                 self.set_message(f"{winner} won!")
-                self.running = False
+                # self.running = False  <-- Comment out or remove this line to keep the game running
 
             # Update the display (flip the buffer).
             pygame.display.flip()
