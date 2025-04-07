@@ -19,7 +19,8 @@ draw_card -> None - Draws a card from the player's deck
 print_hand -> None - Prints the hand in a clean format
 '''
 class Player:
-    def __init__(self, deck=[]):
+    def __init__(self, name, deck=[]):
+        self.name = name
         self.active_card = None
         self.benched_cards = []
         self.hand = []
