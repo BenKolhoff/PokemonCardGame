@@ -35,13 +35,11 @@ class PokemonCardGame:
         self.message_log.append(message)
 
     def draw_message(self):
-        # Draw all messages in the message log at the top of the screen.
-        # We'll start at y=20 and increase by 25 pixels per message.
-        y = 20
-        for msg in self.message_log:
+        # Display only the most recent message
+        if self.message_log:
+            msg = self.message_log[-1]
             text_surface = self.font.render(msg, True, (255, 0, 0))
-            self.screen.blit(text_surface, (20, y))
-            y += 25
+            self.screen.blit(text_surface, (20, 20))
 
     def draw_attack_button(self):
         # Draw a green button with white "Attack" text.
@@ -67,6 +65,23 @@ class PokemonCardGame:
         self.screen.blit(text_surface, (self.input_box_rect.x + 5, self.input_box_rect.y + 5))
         pygame.display.update(self.input_box_rect)
 
+    def draw_turn_info(self):
+        turn_text = f"Turn: Player {self.game.state.current_player.name}"
+        text_surface = self.font.render(turn_text, True, (0, 0, 0))
+        # Adjust the position as needed
+        self.screen.blit(text_surface, (300, 20))
+
+    def draw_points(self):
+        player_a = self.game.state.playerA
+        player_b = self.game.state.playerB
+        a_text = f"Player A Points: {player_a.points}"
+        b_text = f"Player B Points: {player_b.points}"
+        a_surface = self.font.render(a_text, True, (0, 0, 0))
+        b_surface = self.font.render(b_text, True, (0, 0, 0))
+        # Adjust the positions as needed.
+        self.screen.blit(a_surface, (20, 80))
+        self.screen.blit(b_surface, (500, 80))
+
     def attack_action(self):
         current_card = self.game.state.current_player.active_card
         if current_card is not None:
@@ -75,9 +90,9 @@ class PokemonCardGame:
                     move = current_card.moves[0]
                     players = self.game.state.get_player_list()
                     other_player = players[0] if self.game.state.current_player != players[0] else players[1]
-                    current_card.attack(other_player.active_card, move)
+                    attack_message = current_card.attack(other_player.active_card, move)
                     self.game.state.change_player()
-                    self.set_message("Attack succeeded!")
+                    self.set_message(attack_message)
                 else:
                     self.set_message("Error: The specified move is not valid for the active card")
             except Exception as ex:
@@ -162,6 +177,8 @@ class PokemonCardGame:
             self.events()
             # Redraw background and buttons every loop iteration.
             self.screen.fill(self.bg_color)
+            self.draw_turn_info()  # Draw the current player's turn
+            self.draw_points()     # Display players' points
             self.draw_attack_button()
             self.draw_active_button()
             if self.input_active:
@@ -176,7 +193,6 @@ class PokemonCardGame:
 
             # Update the display (flip the buffer).
             pygame.display.flip()
-
             pygame.time.delay(100)
 
 
