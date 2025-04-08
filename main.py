@@ -8,8 +8,8 @@ import sys
 class PokemonCardGame:
     def __init__(self):
         pygame.init()
-        icon = pygame.image.load("sprites/tcg.png")
-        pygame.display.set_icon(icon)
+        #icon = pygame.image.load("sprites/tcg.png")
+        #pygame.display.set_icon(icon)
         self.screen = pygame.display.set_mode((700, 600))
         self.bg_color = (255, 255, 255)
         pygame.display.set_caption('Pokemon Card Game')
@@ -148,6 +148,7 @@ class PokemonCardGame:
                     try:
                         index = int(self.active_input_text)
                         self.game.state.current_player.set_active_card(index)
+                        self.game.state.change_player()
                     except ValueError:
                         self.set_message("Error: Please enter a valid integer for the card index")
                     self.input_active = False
