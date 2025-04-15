@@ -22,6 +22,7 @@ class PokemonCardGame:
         # Create a button rectangle for "Attack" and initialize a font for its text.
         self.attack_button_rect = pygame.Rect(300, 550, 100, 40)
         self.draw_button_rect = pygame.Rect(175, 550, 100, 40)
+        self.bench_button_rect = pygame.Rect(425, 550, 100, 40)
         self.font = pygame.font.SysFont(None, 24)
 
         # New UI element for setting an active card.
@@ -71,6 +72,14 @@ class PokemonCardGame:
         text_rect = text_surface.get_rect(center=self.draw_button_rect.center)
         self.screen.blit(text_surface, text_rect)
         pygame.display.update(self.draw_button_rect)
+
+    def draw_bench_button(self):
+        # Draw a green button with white "Bench" text.
+        pygame.draw.rect(self.screen, (0, 200, 0), self.bench_button_rect)
+        text_surface = self.font.render("Bench", True, (255, 255, 255))
+        text_rect = text_surface.get_rect(center=self.bench_button_rect.center)
+        self.screen.blit(text_surface, text_rect)
+        pygame.display.update(self.bench_button_rect)
 
     def draw_input_box(self):
         # Draw the input rectangle and the current text.
@@ -154,6 +163,8 @@ class PokemonCardGame:
                 elif self.draw_button_rect.collidepoint(event.pos):
                     self.game.state.current_player.draw_card()
                     self.game.state.change_player()
+                elif self.bench_button_rect.collidepoint(event.pos):
+                    pass
             elif event.type == pygame.KEYDOWN and self.input_active:
                 if event.key == pygame.K_RETURN:
                     # Finalize input and attempt to set the active card.
@@ -226,6 +237,7 @@ class PokemonCardGame:
             self.draw_attack_button()
             self.draw_active_button()
             self.draw_draw_button()
+            self.draw_bench_button()
             if self.input_active:
                 self.draw_input_box()
             # Draw the message log on screen.
