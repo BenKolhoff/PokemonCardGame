@@ -56,8 +56,16 @@ class Player:
 
     return: None    
     '''
-    def bench_card(self, card):
-        self.benched_cards.append(card)
+    def bench_card(self, index):
+        if type(index) != int:
+            print("Index must be an integer")
+        elif len(self.hand) == 0:
+            print("You cannot set an active card with an empty hand.")
+        elif index < 0 or index >= len(self.hand):
+            print("The specified index is out of bounds of your hand")
+        else:
+            self.benched_cards.append(self.hand[index])
+            self.hand.pop(index)
 
     '''
     Increases the points of the player by 1.

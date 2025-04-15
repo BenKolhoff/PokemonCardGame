@@ -10,7 +10,7 @@ class PokemonCardGame:
         pygame.init()
         icon = pygame.image.load("sprites/tcg.png")
         pygame.display.set_icon(icon)
-        self.screen = pygame.display.set_mode((700, 600))
+        self.screen = pygame.display.set_mode((1000, 600))
         self.bg_color = (255, 255, 255)
         pygame.display.set_caption('Pokemon Card Game')
         self.screen.fill(self.bg_color)
@@ -28,6 +28,7 @@ class PokemonCardGame:
         # New UI element for setting an active card.
         self.active_button_rect = pygame.Rect(50, 550, 100, 40)
         self.input_active = False
+        self.current_input_src = None
         self.active_input_text = ""
         self.input_box_rect = pygame.Rect(50, 500, 100, 30)
 
@@ -93,7 +94,7 @@ class PokemonCardGame:
         turn_text = f"Turn: Player {self.game.state.current_player.name}"
         text_surface = self.font.render(turn_text, True, (0, 0, 0))
         # Adjust the position as needed
-        self.screen.blit(text_surface, (300, 20))
+        self.screen.blit(text_surface, (425, 20))
 
     def draw_points(self):
         player_a = self.game.state.playerA
@@ -104,20 +105,21 @@ class PokemonCardGame:
         b_surface = self.font.render(b_text, True, (0, 0, 0))
         # Adjust the positions as needed.
         self.screen.blit(a_surface, (20, 80))
-        self.screen.blit(b_surface, (500, 80))
+        self.screen.blit(b_surface, (650, 80))
 
     def draw_active_cards(self):
         player_a = self.game.state.playerA
         player_b = self.game.state.playerB
-        active_a = player_a.active_card.name if player_a.active_card else "None"
-        active_b = player_b.active_card.name if player_b.active_card else "None"
-        a_text = f"Player A Active: {active_a}"
-        b_text = f"Player B Active: {active_b}"
+        active_a = player_a.active_card
+        active_b = player_b.active_card
+        a_text = f"Player A Active: {active_a.name if active_a is not None else "None"}{f" (HP: {active_a.hp})" if active_a is not None else ""}"
+        b_text = f"Player B Active: {active_b.name if active_b is not None else "None"}{f" (HP: {active_b.hp})" if active_b is not None else ""}"
+        
         a_surface = self.font.render(a_text, True, (0, 0, 0))
         b_surface = self.font.render(b_text, True, (0, 0, 0))
         # Adjust the positions as needed.
         self.screen.blit(a_surface, (20, 110))
-        self.screen.blit(b_surface, (500, 110))
+        self.screen.blit(b_surface, (650, 110))
 
     def draw_hand_options(self):
         """Display the current player's hand as selectable options."""
@@ -125,9 +127,33 @@ class PokemonCardGame:
         # Start drawing from a Y position; adjust as needed.
         start_y = 150
         for index, card in enumerate(hand):
-            card_text = f"{index}: {card.name}"
+            card_text = f"{index}: {card.name} (HP: {card.hp})"
             text_surface = self.font.render(card_text, True, (0, 0, 0))
             self.screen.blit(text_surface, (20, start_y + index * 20))
+
+    def draw_benched_cards(self):
+        start_y = 150
+        current_p_bench = self.game.state.current_player.benched_cards
+        # Draw current players' bench
+        bench_text_surface = self.font.render("Bench:", True, (0, 0, 0))
+        self.screen.blit(bench_text_surface, (250, 110))
+
+        for index in range(len(current_p_bench)):
+            card_text = f"{index}: {current_p_bench[index].name} (HP: {current_p_bench[index].hp})"
+            text_surface = self.font.render(card_text, True, (0, 0, 0))
+            self.screen.blit(text_surface, (250, start_y + index * 20))
+
+        # Draw opponent's bench
+        opponent_bench_text_surface = self.font.render("Opponent Bench:", True, (0, 0, 0))
+        self.screen.blit(opponent_bench_text_surface, (650, 150))
+        start_y = 180
+        opponent = self.game.state.playerA if self.game.state.current_player != self.game.state.playerA else self.game.state.playerB
+        opponent_bench = opponent.benched_cards
+
+        for index in range(len(current_p_bench)):
+            card_text = f"{index}: {opponent_bench[index].name} (HP: {opponent_bench[index].hp})"
+            text_surface = self.font.render(card_text, True, (0, 0, 0))
+            self.screen.blit(text_surface, (650, start_y + index * 20))
 
     def attack_action(self):
         current_card = self.game.state.current_player.active_card
@@ -159,19 +185,28 @@ class PokemonCardGame:
                 elif self.active_button_rect.collidepoint(event.pos):
                     # Activate text input for setting an active card.
                     self.input_active = True
+                    self.current_input_src = self.active_button_rect
                     self.active_input_text = ""
                 elif self.draw_button_rect.collidepoint(event.pos):
                     self.game.state.current_player.draw_card()
                     self.game.state.change_player()
                 elif self.bench_button_rect.collidepoint(event.pos):
-                    pass
+                    if len(self.game.state.current_player.benched_cards) < 3:
+                        self.input_active = True
+                        self.current_input_src = self.bench_button_rect
+                        self.active_input_text = ""
             elif event.type == pygame.KEYDOWN and self.input_active:
                 if event.key == pygame.K_RETURN:
                     # Finalize input and attempt to set the active card.
                     try:
-                        index = int(self.active_input_text)
-                        self.game.state.current_player.set_active_card(index)
-                        self.game.state.change_player()
+                        if self.current_input_src is self.active_button_rect:
+                            index = int(self.active_input_text)
+                            self.game.state.current_player.set_active_card(index)
+                            self.game.state.change_player()
+                        elif self.current_input_src is self.bench_button_rect:
+                            index = int(self.active_input_text)
+                            self.game.state.current_player.bench_card(index)
+                            self.game.state.change_player()
                     except ValueError:
                         self.set_message("Error: Please enter a valid integer for the card index")
                     self.input_active = False
@@ -234,6 +269,7 @@ class PokemonCardGame:
             self.draw_points()     # Display players' points
             self.draw_active_cards()  # Display both players' active cards
             self.draw_hand_options()    # Display current player's hand options
+            self.draw_benched_cards() # Display both players' benched cards
             self.draw_attack_button()
             self.draw_active_button()
             self.draw_draw_button()
