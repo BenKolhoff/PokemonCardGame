@@ -156,7 +156,8 @@
     "Stage": "Basic",
     "Number": 16,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Tackle"]
   },
   {
     "Name": "Pidgeotto",
@@ -165,7 +166,8 @@
     "Stage": "Stage 1",
     "Number": 17,
     "Weakness": "Lightning",
-    "Retreat": 0
+    "Retreat": 0,
+    "Moves": ["Flap"]
   },
   {
     "Name": "Pidgeot",
@@ -174,7 +176,8 @@
     "Stage": "Stage 2",
     "Number": 18,
     "Weakness": "Lightning",
-    "Retreat": 0
+    "Retreat": 0,
+    "Moves": ["Fly"]
   },
   {
     "Name": "Rattata",
@@ -183,7 +186,8 @@
     "Stage": "Basic",
     "Number": 19,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Gnaw the Wound"]
   },
   {
     "Name": "Raticate",
@@ -192,7 +196,8 @@
     "Stage": "Stage 1",
     "Number": 20,
     "Weakness": "Fighting",
-    "Retreat": 0
+    "Retreat": 0,
+    "Moves": ["Second Bite"]
   },
   {
     "Name": "Spearow",
@@ -201,7 +206,8 @@
     "Stage": "Basic",
     "Number": 21,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Speed Dive"]
   },
   {
     "Name": "Fearow",
@@ -210,7 +216,8 @@
     "Stage": "Stage 1",
     "Number": 22,
     "Weakness": "Lightning",
-    "Retreat": 0
+    "Retreat": 0,
+    "Moves": ["Speed Dive+"]
   },
   {
     "Name": "Ekans",
@@ -219,7 +226,8 @@
     "Stage": "Basic",
     "Number": 23,
     "Weakness": "Fighting",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Acid Spray"]
   },
   {
     "Name": "Arbok",
@@ -228,7 +236,8 @@
     "Stage": "Stage 1",
     "Number": 24,
     "Weakness": "Fighting",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Bind Down"]
   },
   {
     "Name": "Pikachu",
@@ -237,7 +246,8 @@
     "Stage": "Basic",
     "Number": 25,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Pika Punch"]
   },
   {
     "Name": "Raichu",
@@ -246,7 +256,8 @@
     "Stage": "Stage 1",
     "Number": 26,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Thunder"]
   },
   {
     "Name": "Sandshrew",
@@ -255,7 +266,8 @@
     "Stage": "Basic",
     "Number": 27,
     "Weakness": "Grass",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Scratch"]
   },
   {
     "Name": "Sandslash",
@@ -264,7 +276,8 @@
     "Stage": "Stage 1",
     "Number": 28,
     "Weakness": "Grass",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Spike Rend"]
   },
   {
     "Name": "Nidoran",
@@ -273,7 +286,8 @@
     "Stage": "Basic",
     "Number": 29,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Poison Horn"]
   },
   {
     "Name": "Nidorina",
@@ -282,7 +296,8 @@
     "Stage": "Stage 1",
     "Number": 30,
     "Weakness": "Fighting",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Sharp Fang"]
   },
   {
     "Name": "Nidoqueen",
@@ -291,7 +306,8 @@
     "Stage": "Stage 2",
     "Number": 31,
     "Weakness": "Fighting",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": ["Lunge Out"]
   },
   {
     "Name": "Nidoran",
@@ -300,7 +316,8 @@
     "Stage": "Basic",
     "Number": 32,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Horn Attack"]
   },
   {
     "Name": "Nidorino",
@@ -309,7 +326,8 @@
     "Stage": "Stage 1",
     "Number": 33,
     "Weakness": "Fighting",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Superpowered Horns"]
   },
   {
     "Name": "Nidoking",
@@ -318,7 +336,8 @@
     "Stage": "Stage 2",
     "Number": 34,
     "Weakness": "Fighting",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": ["Venomous Impact"]
   },
   {
     "Name": "Clefairy",
@@ -327,7 +346,8 @@
     "Stage": "Basic",
     "Number": 35,
     "Weakness": "Metal",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Smack"]
   },
   {
     "Name": "Clefable",
@@ -336,7 +356,8 @@
     "Stage": "Stage 1",
     "Number": 36,
     "Weakness": "Metal",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["More Moon"]
   },
   {
     "Name": "Vulpix",
@@ -345,7 +366,8 @@
     "Stage": "Basic",
     "Number": 37,
     "Weakness": "Water",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Super Singe"]
   },
   {
     "Name": "Ninetales",
@@ -354,7 +376,8 @@
     "Stage": "Stage 1",
     "Number": 38,
     "Weakness": "Water",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Mirrored Flames"]
   },
   {
     "Name": "Jigglypuff",
@@ -363,7 +386,8 @@
     "Stage": "Basic",
     "Number": 39,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Lead"]
   },
   {
     "Name": "Wigglytuff",
@@ -372,7 +396,8 @@
     "Stage": "Stage 1",
     "Number": 40,
     "Weakness": "Fighting",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": ["Friend Tackle"]
   },
   {
     "Name": "Zubat",
@@ -381,7 +406,8 @@
     "Stage": "Basic",
     "Number": 41,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Bite"]
   },
   {
     "Name": "Golbat",
@@ -390,7 +416,8 @@
     "Stage": "Stage 1",
     "Number": 42,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Skill Dive"]
   },
   {
     "Name": "Oddish",
@@ -399,7 +426,8 @@
     "Stage": "Basic",
     "Number": 43,
     "Weakness": "Fire",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Razor Leaf"]
   },
   {
     "Name": "Gloom",
@@ -408,7 +436,8 @@
     "Stage": "Stage 1",
     "Number": 44,
     "Weakness": "Fire",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Drool"]
   },
   {
     "Name": "Vileplume",
@@ -417,7 +446,8 @@
     "Stage": "Stage 2",
     "Number": 45,
     "Weakness": "Fire",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Solar Beam"]
   },
   {
     "Name": "Paras",
@@ -426,7 +456,8 @@
     "Stage": "Basic",
     "Number": 46,
     "Weakness": "Fire",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Spore Ball"]
   },
   {
     "Name": "Parasect",
@@ -435,7 +466,8 @@
     "Stage": "Stage 1",
     "Number": 47,
     "Weakness": "Fire",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Claw Slash"]
   },
   {
     "Name": "Venonat",
