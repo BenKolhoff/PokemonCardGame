@@ -64,8 +64,12 @@ class Player:
         elif index < 0 or index >= len(self.hand):
             print("The specified index is out of bounds of your hand")
         else:
-            self.benched_cards.append(self.hand[index])
-            self.hand.pop(index)
+            card = self.hand[index]
+            if card.stage != "Basic":
+                print("Only basic cards can be benched")
+            else:
+                self.benched_cards.append(card)
+                self.hand.pop(index)
 
     '''
     Increases the points of the player by 1.

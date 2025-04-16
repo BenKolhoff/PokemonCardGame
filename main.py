@@ -112,8 +112,8 @@ class PokemonCardGame:
         player_b = self.game.state.playerB
         active_a = player_a.active_card
         active_b = player_b.active_card
-        a_text = f"Player A Active: {active_a.name if active_a is not None else "None"}{f" (HP: {active_a.hp})" if active_a is not None else ""}"
-        b_text = f"Player B Active: {active_b.name if active_b is not None else "None"}{f" (HP: {active_b.hp})" if active_b is not None else ""}"
+        a_text = f"Player A Active: {active_a.name if active_a is not None else 'None'}{f' (HP: {active_a.hp})' if active_a is not None else ''}"
+        b_text = f"Player B Active: {active_b.name if active_b is not None else 'None'}{f' (HP: {active_b.hp})' if active_b is not None else ''}"
         
         a_surface = self.font.render(a_text, True, (0, 0, 0))
         b_surface = self.font.render(b_text, True, (0, 0, 0))
@@ -204,7 +204,8 @@ class PokemonCardGame:
                         elif self.current_input_src is self.bench_button_rect:
                             index = int(self.active_input_text)
                             self.game.state.current_player.bench_card(index)
-                            self.game.state.change_player()
+                            # Removed turn change after benching a card.
+                            # self.game.state.change_player()
                     except ValueError:
                         self.set_message("Error: Please enter a valid integer for the card index")
                     self.input_active = False
