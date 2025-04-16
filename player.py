@@ -36,7 +36,7 @@ class Player:
     return: None
     '''
     def set_active_card(self, index):
-        if self.active_card != None:
+        if self.active_card is not None:
             print("You already have an active card. You must retreat that first.")
         elif type(index) != int:
             print("Index must be an integer")
@@ -44,6 +44,8 @@ class Player:
             print("You cannot set an active card with an empty hand.")
         elif index < 0 or index >= len(self.hand):
             print("The specified index is out of bounds of your hand")
+        elif self.hand[index].stage != "Basic":
+            print("Only basic cards can be set as active.")
         else:
             self.active_card = self.hand[index]
             self.hand.pop(index)
