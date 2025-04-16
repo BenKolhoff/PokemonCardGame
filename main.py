@@ -136,15 +136,15 @@ class PokemonCardGame:
         current_p_bench = self.game.state.current_player.benched_cards
         # Draw current players' bench
         bench_text_surface = self.font.render("Bench:", True, (0, 0, 0))
-        self.screen.blit(bench_text_surface, (250, 110))
+        self.screen.blit(bench_text_surface, (320, 110))
 
         for index in range(len(current_p_bench)):
             card_text = f"{index}: {current_p_bench[index].name} (HP: {current_p_bench[index].hp})"
             text_surface = self.font.render(card_text, True, (0, 0, 0))
-            self.screen.blit(text_surface, (250, start_y + index * 20))
+            self.screen.blit(text_surface, (320, start_y + index * 20))
 
         # Draw opponent's bench
-        opponent_bench_text_surface = self.font.render("Opponent Bench:", True, (0, 0, 0))
+        opponent_bench_text_surface = self.font.render("Bench:", True, (0, 0, 0))
         self.screen.blit(opponent_bench_text_surface, (650, 150))
         start_y = 180
         opponent = self.game.state.playerA if self.game.state.current_player != self.game.state.playerA else self.game.state.playerB
