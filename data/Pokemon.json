@@ -476,7 +476,8 @@
     "Stage": "Basic",
     "Number": 48,
     "Weakness": "Fire",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Beam"]
   },
   {
     "Name": "Venomoth",
@@ -485,7 +486,8 @@
     "Stage": "Stage 1",
     "Number": 49,
     "Weakness": "Fire",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Speed Wing"]
   },
   {
     "Name": "Diglett",
@@ -494,7 +496,8 @@
     "Stage": "Basic",
     "Number": 50,
     "Weakness": "Grass",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Mud-Slap"]
   },
   {
     "Name": "Dugtrio",
@@ -503,7 +506,8 @@
     "Stage": "Stage 1",
     "Number": 51,
     "Weakness": "Grass",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Mud Bomb"]
   },
   {
     "Name": "Meowth",
@@ -512,7 +516,8 @@
     "Stage": "Basic",
     "Number": 52,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Dig Claws"]
   },
   {
     "Name": "Persian",
@@ -521,7 +526,8 @@
     "Stage": "Stage 1",
     "Number": 53,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Slash"]
   },
   {
     "Name": "Psyduck",
@@ -530,7 +536,8 @@
     "Stage": "Basic",
     "Number": 54,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Water Gun"]
   },
   {
     "Name": "Golduck",
@@ -539,7 +546,8 @@
     "Stage": "Stage 1",
     "Number": 55,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Super Splash"]
   },
   {
     "Name": "Mankey",
@@ -548,7 +556,8 @@
     "Stage": "Basic",
     "Number": 56,
     "Weakness": "Psychic",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Thrash"]
   },
   {
     "Name": "Primeape",
@@ -557,7 +566,8 @@
     "Stage": "Stage 1",
     "Number": 57,
     "Weakness": "Psychic",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Rant and Rave"]
   },
   {
     "Name": "Growlithe",
@@ -566,7 +576,8 @@
     "Stage": "Basic",
     "Number": 58,
     "Weakness": "Water",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Vaporize"]
   },
   {
     "Name": "Arcanine",
@@ -575,7 +586,8 @@
     "Stage": "Stage 1",
     "Number": 59,
     "Weakness": "Water",
-    "Retreat": 4
+    "Retreat": 4,
+    "Moves": ["Dynamite Fang"]
   },
   {
     "Name": "Poliwag",
@@ -584,7 +596,8 @@
     "Stage": "Basic",
     "Number": 60,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Bubble"]
   },
   {
     "Name": "Poliwhirl",
@@ -593,7 +606,8 @@
     "Stage": "Stage 1",
     "Number": 61,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Frog Hop"]
   },
   {
     "Name": "Poliwrath",
@@ -602,7 +616,8 @@
     "Stage": "Stage 2",
     "Number": 62,
     "Weakness": "Lightning",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Heroic Punch"]
   },
   {
     "Name": "Abra",
@@ -611,7 +626,8 @@
     "Stage": "Basic",
     "Number": 63,
     "Weakness": "Darkness",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Psyshot"]
   },
   {
     "Name": "Kadabra",
@@ -620,7 +636,8 @@
     "Stage": "Stage 1",
     "Number": 64,
     "Weakness": "Darkness",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Teleportation Attack"]
   },
   {
     "Name": "Alakazam",
@@ -629,7 +646,8 @@
     "Stage": "Stage 2",
     "Number": 65,
     "Weakness": "Darkness",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Dimensional Hand"]
   },
   {
     "Name": "Machop",
@@ -638,7 +656,8 @@
     "Stage": "Basic",
     "Number": 66,
     "Weakness": "Psychic",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Punch"]
   },
   {
     "Name": "Machoke",
@@ -647,7 +666,8 @@
     "Stage": "Stage 1",
     "Number": 67,
     "Weakness": "Psychic",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Mountain Ramming"]
   },
   {
     "Name": "Machamp",
@@ -656,7 +676,8 @@
     "Stage": "Stage 2",
     "Number": 68,
     "Weakness": "Psychic",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Mountain Chopping"]
   },
   {
     "Name": "Bellsprout",
@@ -665,7 +686,8 @@
     "Stage": "Basic",
     "Number": 69,
     "Weakness": "Fire",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Bind Down"]
   },
   {
     "Name": "Weepinbell",
@@ -674,7 +696,8 @@
     "Stage": "Stage 1",
     "Number": 70,
     "Weakness": "Fire",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Spray Fluid"]
   },
   {
     "Name": "Victreebel",
@@ -683,7 +706,8 @@
     "Stage": "Stage 2",
     "Number": 71,
     "Weakness": "Fire",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": ["Slow-Acting Acid"]
   },
   {
     "Name": "Tentacool",
@@ -692,7 +716,8 @@
     "Stage": "Basic",
     "Number": 72,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Watering"]
   },
   {
     "Name": "Tentacruel",
@@ -701,7 +726,8 @@
     "Stage": "Stage 1",
     "Number": 73,
     "Weakness": "Lightning",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Tentacular Panic"]
   },
   {
     "Name": "Geodude",
@@ -710,7 +736,8 @@
     "Stage": "Basic",
     "Number": 74,
     "Weakness": "Grass",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Knuckle Punch"]
   },
   {
     "Name": "Graveler",
@@ -719,7 +746,8 @@
     "Stage": "Stage 1",
     "Number": 75,
     "Weakness": "Grass",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": ["Heavy Impact"]
   },
   {
     "Name": "Golem",
@@ -728,7 +756,8 @@
     "Stage": "Stage 2",
     "Number": 76,
     "Weakness": "Grass",
-    "Retreat": 4
+    "Retreat": 4,
+    "Moves": ["Rock Blaster"]
   },
   {
     "Name": "Ponyta",
@@ -737,7 +766,8 @@
     "Stage": "Basic",
     "Number": 77,
     "Weakness": "Water",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Flop"]
   },
   {
     "Name": "Rapidash",
@@ -746,7 +776,8 @@
     "Stage": "Stage 1",
     "Number": 78,
     "Weakness": "Water",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Mach Turn"]
   },
   {
     "Name": "Slowpoke",
@@ -755,7 +786,8 @@
     "Stage": "Basic",
     "Number": 79,
     "Weakness": "Darkness",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Headbutt"]
   },
   {
     "Name": "Slowbro",
@@ -764,7 +796,8 @@
     "Stage": "Stage 1",
     "Number": 80,
     "Weakness": "Darkness",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": ["Laid-Back Tackle"]
   },
   {
     "Name": "Magnemite",
@@ -773,7 +806,8 @@
     "Stage": "Basic",
     "Number": 81,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": ["Tiny Charge"]
   },
   {
     "Name": "Magneton",
@@ -1115,7 +1149,8 @@
     "Stage": "Stage 1",
     "Number": 119,
     "Weakness": "Lightning",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Staryu",
@@ -1124,7 +1159,8 @@
     "Stage": "Basic",
     "Number": 120,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": [""]
   },
   {
     "Name": "Starmie",
@@ -1133,7 +1169,8 @@
     "Stage": "Stage 1",
     "Number": 121,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": [""]
   },
   {
     "Name": "Mr. Mime",
@@ -1142,7 +1179,8 @@
     "Stage": "Basic",
     "Number": 122,
     "Weakness": "Darkness",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": [""]
   },
   {
     "Name": "Scyther",
@@ -1151,7 +1189,8 @@
     "Stage": "Basic",
     "Number": 123,
     "Weakness": "Fire",
-    "Retreat": 0
+    "Retreat": 0,
+    "Moves": [""]
   },
   {
     "Name": "Jynx",
@@ -1160,7 +1199,8 @@
     "Stage": "Basic",
     "Number": 124,
     "Weakness": "Metal",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Electabuzz",
@@ -1169,7 +1209,8 @@
     "Stage": "Basic",
     "Number": 125,
     "Weakness": "Fighting",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Magmar",
@@ -1178,7 +1219,8 @@
     "Stage": "Basic",
     "Number": 126,
     "Weakness": "Water",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Pinsir",
@@ -1187,7 +1229,8 @@
     "Stage": "Basic",
     "Number": 127,
     "Weakness": "Fire",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Tauros",
@@ -1196,7 +1239,8 @@
     "Stage": "Basic",
     "Number": 128,
     "Weakness": "Fighting",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Magikarp",
@@ -1205,7 +1249,8 @@
     "Stage": "Basic",
     "Number": 129,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": [""]
   },
   {
     "Name": "Gyarados",
@@ -1214,7 +1259,8 @@
     "Stage": "Stage 1",
     "Number": 130,
     "Weakness": "Lightning",
-    "Retreat": 4
+    "Retreat": 4,
+    "Moves": [""]
   },
   {
     "Name": "Lapras",
@@ -1223,7 +1269,8 @@
     "Stage": "Basic",
     "Number": 131,
     "Weakness": "Lightning",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": [""]
   },
   {
     "Name": "Ditto",
@@ -1232,7 +1279,8 @@
     "Stage": "Basic",
     "Number": 132,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": [""]
   },
   {
     "Name": "Eevee",
@@ -1241,7 +1289,8 @@
     "Stage": "Basic",
     "Number": 133,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": [""]
   },
   {
     "Name": "Vaporeon",
@@ -1250,7 +1299,8 @@
     "Stage": "Stage 1",
     "Number": 134,
     "Weakness": "Lightning",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Jolteon",
@@ -1259,7 +1309,8 @@
     "Stage": "Stage 1",
     "Number": 135,
     "Weakness": "Fighting",
-    "Retreat": 0
+    "Retreat": 0,
+    "Moves": [""]
   },
   {
     "Name": "Flareon",
@@ -1268,7 +1319,8 @@
     "Stage": "Stage 1",
     "Number": 136,
     "Weakness": "Water",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Porygon",
@@ -1277,7 +1329,8 @@
     "Stage": "Basic",
     "Number": 137,
     "Weakness": "Fighting",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": [""]
   },
   {
     "Name": "Omanyte",
@@ -1286,7 +1339,8 @@
     "Stage": "Stage 1",
     "Number": 138,
     "Weakness": "Lightning",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Omastar",
@@ -1295,7 +1349,8 @@
     "Stage": "Stage 2",
     "Number": 139,
     "Weakness": "Lightning",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": [""]
   },
   {
     "Name": "Kabuto",
@@ -1304,7 +1359,8 @@
     "Stage": "Stage 1",
     "Number": 140,
     "Weakness": "Grass",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Kabutops",
@@ -1313,7 +1369,8 @@
     "Stage": "Stage 2",
     "Number": 141,
     "Weakness": "Grass",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Aerodactyl",
@@ -1322,7 +1379,8 @@
     "Stage": "Stage 1",
     "Number": 142,
     "Weakness": "Lightning",
-    "Retreat": 0
+    "Retreat": 0,
+    "Moves": [""]
   },
   {
     "Name": "Snorlax",
@@ -1331,7 +1389,8 @@
     "Stage": "Basic",
     "Number": 143,
     "Weakness": "Fighting",
-    "Retreat": 4
+    "Retreat": 4,
+    "Moves": [""]
   },
   {
     "Name": "Articuno",
@@ -1340,7 +1399,8 @@
     "Stage": "Basic",
     "Number": 144,
     "Weakness": "Lightning",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Zapdos",
@@ -1349,7 +1409,8 @@
     "Stage": "Basic",
     "Number": 145,
     "Weakness": "Lightning",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Moltres",
@@ -1358,7 +1419,8 @@
     "Stage": "Basic",
     "Number": 146,
     "Weakness": "Lightning",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Dratini",
@@ -1367,7 +1429,8 @@
     "Stage": "Basic",
     "Number": 147,
     "Weakness": "None",
-    "Retreat": 1
+    "Retreat": 1,
+    "Moves": [""]
   },
   {
     "Name": "Dragonair",
@@ -1376,7 +1439,8 @@
     "Stage": "Stage 1",
     "Number": 148,
     "Weakness": "None",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Dragonite",
@@ -1385,7 +1449,8 @@
     "Stage": "Stage 2",
     "Number": 149,
     "Weakness": "None",
-    "Retreat": 3
+    "Retreat": 3,
+    "Moves": [""]
   },
   {
     "Name": "Mewtwo",
@@ -1394,7 +1459,8 @@
     "Stage": "Basic",
     "Number": 150,
     "Weakness": "Darkness",
-    "Retreat": 2
+    "Retreat": 2,
+    "Moves": [""]
   },
   {
     "Name": "Mew",
@@ -1403,6 +1469,7 @@
     "Stage": "Basic",
     "Number": 151,
     "Weakness": "Darkness",
-    "Retreat": 0
+    "Retreat": 0,
+    "Moves": [""]
   }
 ]
