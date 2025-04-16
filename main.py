@@ -124,36 +124,34 @@ class PokemonCardGame:
     def draw_hand_options(self):
         """Display the current player's hand as selectable options."""
         hand = self.game.state.current_player.hand
-        # Start drawing from a Y position; adjust as needed.
         start_y = 150
+        screen_width = self.screen.get_width()
         for index, card in enumerate(hand):
             card_text = f"{index}: {card.name} (HP: {card.hp})"
             text_surface = self.font.render(card_text, True, (0, 0, 0))
-            self.screen.blit(text_surface, (20, start_y + index * 20))
+            text_rect = text_surface.get_rect()
+            text_rect.centerx = screen_width // 2
+            text_rect.y = start_y + index * 20
+            self.screen.blit(text_surface, text_rect)
 
     def draw_benched_cards(self):
-        start_y = 150
-        current_p_bench = self.game.state.current_player.benched_cards
-        # Draw current players' bench
-        bench_text_surface = self.font.render("Bench:", True, (0, 0, 0))
-        self.screen.blit(bench_text_surface, (320, 110))
-
-        for index in range(len(current_p_bench)):
-            card_text = f"{index}: {current_p_bench[index].name} (HP: {current_p_bench[index].hp})"
+        # Draw Player A's bench underneath active card (active card drawn at (20, 110))
+        bench_text_surface_a = self.font.render("Bench:", True, (0, 0, 0))
+        self.screen.blit(bench_text_surface_a, (20, 150))
+        player_a_bench = self.game.state.playerA.benched_cards
+        for index, card in enumerate(player_a_bench):
+            card_text = f"{index}: {card.name} (HP: {card.hp})"
             text_surface = self.font.render(card_text, True, (0, 0, 0))
-            self.screen.blit(text_surface, (320, start_y + index * 20))
+            self.screen.blit(text_surface, (20, 180 + index * 20))
 
-        # Draw opponent's bench
-        opponent_bench_text_surface = self.font.render("Bench:", True, (0, 0, 0))
-        self.screen.blit(opponent_bench_text_surface, (650, 150))
-        start_y = 180
-        opponent = self.game.state.playerA if self.game.state.current_player != self.game.state.playerA else self.game.state.playerB
-        opponent_bench = opponent.benched_cards
-
-        for index in range(len(current_p_bench)):
-            card_text = f"{index}: {opponent_bench[index].name} (HP: {opponent_bench[index].hp})"
+        # Draw Player B's bench underneath active card (active card drawn at (650, 110))
+        bench_text_surface_b = self.font.render("Bench:", True, (0, 0, 0))
+        self.screen.blit(bench_text_surface_b, (650, 150))
+        player_b_bench = self.game.state.playerB.benched_cards
+        for index, card in enumerate(player_b_bench):
+            card_text = f"{index}: {card.name} (HP: {card.hp})"
             text_surface = self.font.render(card_text, True, (0, 0, 0))
-            self.screen.blit(text_surface, (650, start_y + index * 20))
+            self.screen.blit(text_surface, (650, 180 + index * 20))
 
     def attack_action(self):
         current_card = self.game.state.current_player.active_card
