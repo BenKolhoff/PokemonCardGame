@@ -2,96 +2,776 @@
   {
     "Name": "Leech Seed",
     "Damage": 20,
-    "Cost": "1G1N"
+    "Cost": 1
   },
   {
     "Name": "Vine Whip",
     "Damage": 80,
-    "Cost": "2G1N"
+    "Cost": 2
   },
   {
     "Name": "Dangerous Toxwhip",
     "Damage": 150,
-    "Cost": "2G1N"
+    "Cost": 3
   },
   {
     "Name": "Steady Firebreathing",
     "Damage": 30,
-    "Cost": "2F"
+    "Cost": 2
   },
   {
     "Name": "Combustion",
     "Damage": 20,
-    "Cost": "1F"
+    "Cost": 1
   },
   {
     "Name": "Fire Blast",
     "Damage": 90,
-    "Cost": "3F"
+    "Cost": 3
   },
   {
     "Name": "Brave Wing",
     "Damage": 60,
-    "Cost": "1F"
+    "Cost": 1
   },
   {
     "Name": "Explosive Vortex",
     "Damage": 330,
-    "Cost": "3F"
+    "Cost": 3
   },
   {
     "Name": "Skull Bash",
     "Damage": 20,
-    "Cost": "2W"
+    "Cost": 1
   },
   {
     "Name": "Spinning Attack",
     "Damage": 50,
-    "Cost": "2W"
+    "Cost": 2
   },
   {
     "Name": "Twin Cannons",
     "Damage": 140,
-    "Cost": "2W"
+    "Cost": 3
   },
   {
     "Name": "Leaf Munch",
     "Damage": 10,
-    "Cost": "1G"
+    "Cost": 1
   },
   {
     "Name": "Tackle",
     "Damage": 20,
-    "Cost": "1G"
+    "Cost": 1
   },
   {
     "Name": "Whirlwind",
     "Damage": 60,
-    "Cost": "1G"
+    "Cost": 1
   },
   {
     "Name": "Ram",
     "Damage": 10,
-    "Cost": "1G"
+    "Cost": 1
   },
   {
     "Name": "Bug Bite",
     "Damage": 20,
-    "Cost": "2N"
+    "Cost": 2
   },
   {
     "Name": "Zzzt",
     "Damage": 20,
-    "Cost": "2N"
+    "Cost": 2
   },
   {
     "Name": "Nadir Needle",
     "Damage": 30,
-    "Cost": "2N"
+    "Cost": 2
   },
   {
     "Name": "Pierce",
     "Damage": 110,
-    "Cost": "2G"
+    "Cost": 2
+  },
+  {
+    "Name": "Tackle",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Flap",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Fly",
+    "Damage": 150,
+    "Cost": 3
+  },
+  {
+    "Name": "Gnaw the Wound",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Second Bite",
+    "Damage": 30,
+    "Cost": 2
+  },
+  {
+    "Name": "Speed Dive",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Speed Dive+",
+    "Damage": 50,
+    "Cost": 1
+  },
+  {
+    "Name": "Acid Spray",
+    "Damage": 30,
+    "Cost": 2
+  },
+  {
+    "Name": "Bind Down",
+    "Damage": 70,
+    "Cost": 2
+  },
+  {
+    "Name": "Pika Punch",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Thunder",
+    "Damage": 180,
+    "Cost": 3
+  },
+  {
+    "Name": "Scratch",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Spike Rend",
+    "Damage": 80,
+    "Cost": 2
+  },
+  {
+    "Name": "Poison Horn",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Sharp Fang",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Lunge Out",
+    "Damage": 160,
+    "Cost": 3
+  },
+  {
+    "Name": "Horn Attack",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Superpowered Horns",
+    "Damage": 100,
+    "Cost": 3
+  },
+  {
+    "Name": "Venomous Impact",
+    "Damage": 190,
+    "Cost": 3
+  },
+  {
+    "Name": "Smack",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "More Moon",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Super Singe",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Mirrored Flames",
+    "Damage": 180,
+    "Cost": 3
+  },
+  {
+    "Name": "Lead",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Friend Tackle",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Bite",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Skill Dive",
+    "Damage": 40,
+    "Cost": 2
+  },
+  {
+    "Name": "Razor Leaf",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Drool",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Solar Beam",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Spore Ball",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Claw Slash",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Beam",
+    "Damage": 40,
+    "Cost": 2
+  },
+  {
+    "Name": "Speed Wing",
+    "Damage": 90,
+    "Cost": 3
+  },
+  {
+    "Name": "Mud-Slap",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Mud Bomb",
+    "Damage": 80,
+    "Cost": 2
+  },
+  {
+    "Name": "Dig Claws",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Slash",
+    "Damage": 70,
+    "Cost": 2
+  },
+  {
+    "Name": "Water Gun",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Super Splash",
+    "Damage": 120,
+    "Cost": 3
+  },
+  {
+    "Name": "Thrash",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Rant and Rave",
+    "Damage": 80,
+    "Cost": 2
+  },
+  {
+    "Name": "Vaporize",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Dynamite Fang",
+    "Damage": 240,
+    "Cost": 4
+  },
+  {
+    "Name": "Bubble",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Frog Hop",
+    "Damage": 40,
+    "Cost": 2
+  },
+  {
+    "Name": "Heroic Punch",
+    "Damage": 100,
+    "Cost": 3
+  },
+  {
+    "Name": "Psyshot",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Teleportation Attack",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Dimensional Hand",
+    "Damage": 120,
+    "Cost": 3
+  },
+  {
+    "Name": "Punch",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Mountain Ramming",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Mountain Chopping",
+    "Damage": 100,
+    "Cost": 3
+  },
+  {
+    "Name": "Bind Down",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Spray Fluid",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Slow-Acting Acid",
+    "Damage": 120,
+    "Cost": 3
+  },
+  {
+    "Name": "Watering",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Tentacular Pain",
+    "Damage": 90,
+    "Cost": 3
+  },
+  {
+    "Name": "Knuckle Punch",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Heavy Impact",
+    "Damage": 60,
+    "Cost": 2
+  },
+  {
+    "Name": "Rock Blaster",
+    "Damage": 180,
+    "Cost": 3
+  },
+  {
+    "Name": "Flop",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Mach Turn",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Headbutt",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Laid-Back Tackle",
+    "Damage": 160,
+    "Cost": 3
+  },
+  {
+    "Name": "Tiny Charge",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Head Bolt",
+    "Damage": 60,
+    "Cost": 2
+  },
+  {
+    "Name": "Leek Clobber",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Reckless Charge",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Ballistic Beak",
+    "Damage": 60,
+    "Cost": 2
+  },
+  {
+    "Name": "Chilly",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Aurora Beam",
+    "Damage": 100,
+    "Cost": 3
+  },
+  {
+    "Name": "Gummy Press",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Sludge Bomb",
+    "Damage": 180,
+    "Cost": 3
+  },
+  {
+    "Name": "Shell Press",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Protect Charge",
+    "Damage": 80,
+    "Cost": 2
+  },
+  {
+    "Name": "Suffocating Gas",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Mumble",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Hollow Dive",
+    "Damage": 110,
+    "Cost": 3
+  },
+  {
+    "Name": "Heavy Impact",
+    "Damage": 100,
+    "Cost": 3
+  },
+  {
+    "Name": "Zen Headbutt",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Super Psy Bolt",
+    "Damage": 110,
+    "Cost": 3
+  },
+  {
+    "Name": "Crabhammer",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Guillotine",
+    "Damage": 220,
+    "Cost": 4
+  },
+  {
+    "Name": "Tumbling Attack",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Electro Ball",
+    "Damage": 70,
+    "Cost": 2
+  },
+  {
+    "Name": "Ball Roll",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Hammer In",
+    "Damage": 130,
+    "Cost": 3
+  },
+  {
+    "Name": "Hit Twice",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Boundless Power",
+    "Damage": 120,
+    "Cost": 3
+  },
+  {
+    "Name": "Low Kick",
+    "Damage": 100,
+    "Cost": 3
+  },
+  {
+    "Name": "Excited Punch",
+    "Damage": 150,
+    "Cost": 3
+  },
+  {
+    "Name": "Tongue-Tied",
+    "Damage": 70,
+    "Cost": 2
+  },
+  {
+    "Name": "Suspicious Gas",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Spinning Fumes",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Boulder Crush",
+    "Damage": 70,
+    "Cost": 2
+  },
+  {
+    "Name": "Charismatic Drill",
+    "Damage": 110,
+    "Cost": 3
+  },
+  {
+    "Name": "Gentle Slap",
+    "Damage": 70,
+    "Cost": 2
+  },
+  {
+    "Name": "Tactful Tangling",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Incessant Punching",
+    "Damage": 110,
+    "Cost": 3
+  },
+  {
+    "Name": "Sharp Fin",
+    "Damage": 40,
+    "Cost": 1
+  },
+  {
+    "Name": "Binding Ink",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Sprinkle Water",
+    "Damage": 20,
+    "Cost": 1
+  },
+  {
+    "Name": "Aqua Horn",
+    "Damage": 60,
+    "Cost": 2
+  },
+  {
+    "Name": "Swift",
+    "Damage": 30,
+    "Cost": 1
+  },
+  {
+    "Name": "Speed Attack",
+    "Damage": 50,
+    "Cost": 1
+  },
+  {
+    "Name": "Psypower",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Slicing Blade",
+    "Damage": 70,
+    "Cost": 2
+  },
+  {
+    "Name": "Icy Wind",
+    "Damage": 120,
+    "Cost": 3
+  },
+  {
+    "Name": "Light Punch",
+    "Damage": 60,
+    "Cost": 2
+  },
+  {
+    "Name": "Flare Combo",
+    "Damage": 80,
+    "Cost": 2
+  },
+  {
+    "Name": "Reckless Throw",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Rage",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Splash",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Hyper Beam",
+    "Damage": 230,
+    "Cost": 4
+  },
+  {
+    "Name": "Aqua Edge",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Splup",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Skip",
+    "Damage": 10,
+    "Cost": 1
+  },
+  {
+    "Name": "Fighting Whirlpool",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Fighting Lightning",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Fightling Blaze",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Conversion 4",
+    "Damage": 40,
+    "Cost": 1
+  },
+  {
+    "Name": "Tentacular Return",
+    "Damage": 50,
+    "Cost": 2
+  },
+  {
+    "Name": "Aqua Split",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Double Scratch",
+    "Damage": 70,
+    "Cost": 2
+  },
+  {
+    "Name": "Draining Blade",
+    "Damage": 100,
+    "Cost": 3
+  },
+  {
+    "Name": "Devolution Ray",
+    "Damage": 100,
+    "Cost": 3
+  },
+  {
+    "Name": "Thudding Press",
+    "Damage": 130,
+    "Cost": 3
+  },
+  {
+    "Name": "Blizzard",
+    "Damage": 110,
+    "Cost": 3
+  },
+  {
+    "Name": "Multishot Lightning",
+    "Damage": 120,
+    "Cost": 3
+  },
+  {
+    "Name": "Blazing Flight",
+    "Damage": 120,
+    "Cost": 3
+  },
+  {
+    "Name": "Draconic Whip",
+    "Damage": 40,
+    "Cost": 1
+  },
+  {
+    "Name": "Aqua Slash",
+    "Damage": 90,
+    "Cost": 2
+  },
+  {
+    "Name": "Dragon Pulse",
+    "Damage": 180,
+    "Cost": 3
+  },
+  {
+    "Name": "Psyslash",
+    "Damage": 130,
+    "Cost": 3
+  },
+  {
+    "Name": "Genome Hacking",
+    "Damage": 160,
+    "Cost": 3
   }
 ]
