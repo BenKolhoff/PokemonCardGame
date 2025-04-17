@@ -27,6 +27,7 @@ class TestCard(unittest.TestCase):
         # Assign the dummy owner to card2.
         self.card2.owner = DummyOwner(self.card2)
         
+        self.card1.energy = 2
         self.card1.attack(self.card2, self.move)
         self.assertEqual(self.card2.hp, 30)  # 60 - 30 = 30
     

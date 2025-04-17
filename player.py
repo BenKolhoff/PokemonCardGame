@@ -87,7 +87,7 @@ class Player:
         if type(index) != int:
             return "Index must be an integer"
         elif len(self.hand) == 0:
-            return "You cannot set an active card with an empty hand."
+            return "You cannot bench a card with an empty hand."
         elif index < 0 or index >= len(self.hand):
             return "The specified index is out of bounds of your hand"
         else:

@@ -26,7 +26,8 @@ input_active (boolean) - Whether or not the input box is taking input/displaying
 current_input_src (Rect) - The rect of the last button clicked that calls for input_active to be true.
 active_input_text (str) - The message of the active input text.
 message_log (str[]) - A log of all messages the game has output to the user.
-should_draw_message (boolean) -> Whether or not the last message of message_log should be shown to the user.
+should_draw_message (boolean) - Whether or not the last message of message_log should be shown to the user.
+should_draw_game_ui (boolean) - Whether or not the game's UI should be drawn.
 
 Methods:
 set_message(message: str) -> None - Sets the current message that is displayed above the buttons.
@@ -79,11 +80,6 @@ class PokemonCardGame:
         self.message_log = []
         self.should_draw_message = True
         
-        # initialize game‐logic instance, loop flag & font
-        self.running = True
-        self.font = pygame.font.SysFont(None, 24)
-        self.game = Game()
-
         # Begin deck selection before starting game loop.
         self.deck_selection_phase()
 
@@ -180,7 +176,7 @@ class PokemonCardGame:
     
     return: None
     '''
-    def draw_message(self):
+    def draw_message(self, x=None, y=None):
         # Display only the most recent message at the bottom middle of the screen.
         if self.message_log:
             msg = self.message_log[-1]
@@ -188,8 +184,8 @@ class PokemonCardGame:
             text_rect = text_surface.get_rect()
             screen_width = self.screen.get_width()
             screen_height = self.screen.get_height()
-            text_rect.x = 20
-            text_rect.y = screen_height - 140
+            text_rect.x = x if x != None else 20
+            text_rect.y = y if y != None else screen_height - 140
             self.screen.blit(text_surface, text_rect)
 
     '''
@@ -529,12 +525,12 @@ class PokemonCardGame:
             self.draw_active_cards()
             self.draw_hand_options()
             self.draw_benched_cards()
-            self.draw_attack_button(mouse_pos)
-            self.draw_active_button(mouse_pos)
-            self.draw_draw_button(mouse_pos)
-            self.draw_bench_button(mouse_pos)
-            self.draw_attach_button(mouse_pos)
-            self.draw_pass_button(mouse_pos)
+            self.draw_attack_button()
+            self.draw_active_button()
+            self.draw_draw_button()
+            self.draw_bench_button()
+            self.draw_attach_button()
+            self.draw_pass_button()
             self.draw_energy()
             self.draw_active_card_move()
             
@@ -546,8 +542,11 @@ class PokemonCardGame:
 
             # Winning condition check...
             if self.game.state.playerA.points >= 3 or self.game.state.playerB.points >= 3:
+                self.should_draw_game_ui = False
+                
                 winner = "Player A" if self.game.state.playerA.points >= 3 else "Player B"
                 self.set_message(f"{winner} won!")
+                self.draw_message(425, self.screen.get_height() // 2)
             
             pygame.display.flip()
             pygame.time.delay(100)
