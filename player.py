@@ -28,6 +28,7 @@ class Player:
         self.deck = deck if type(deck) == list else []
         self.discard = []
         self.points = 0
+        self.energy = 0
 
     '''
     Sets the player's active card if they specify a valid index and don't already have a card.

@@ -179,6 +179,9 @@ class PokemonCardGame:
         self.screen.blit(a_surface, (20, 80))
         self.screen.blit(b_surface, (650, 80))
 
+    def draw_energy(self):
+        self.screen.blit(self.font.render(f"Current Energy: {self.game.state.current_player.energy}", True, (0, 0, 0)), (850, 570))
+
     def draw_active_cards(self):
         player_a = self.game.state.playerA
         player_b = self.game.state.playerB
@@ -344,6 +347,7 @@ class PokemonCardGame:
             self.draw_active_button()
             self.draw_draw_button()
             self.draw_bench_button()
+            self.draw_energy()
             if self.input_active:
                 self.draw_input_box()
             self.draw_message()
