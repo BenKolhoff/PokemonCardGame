@@ -79,6 +79,11 @@ class PokemonCardGame:
         self.active_input_text = ""
         self.message_log = []
         self.should_draw_message = True
+
+        from game import Game
+        self.game = Game()
+        self.running = True
+        self.font = pygame.font.SysFont(None, 24)
         
         # Begin deck selection before starting game loop.
         self.deck_selection_phase()
@@ -525,12 +530,12 @@ class PokemonCardGame:
             self.draw_active_cards()
             self.draw_hand_options()
             self.draw_benched_cards()
-            self.draw_attack_button()
-            self.draw_active_button()
-            self.draw_draw_button()
-            self.draw_bench_button()
-            self.draw_attach_button()
-            self.draw_pass_button()
+            self.draw_attack_button(mouse_pos)
+            self.draw_active_button(mouse_pos)
+            self.draw_draw_button(mouse_pos)
+            self.draw_bench_button(mouse_pos)
+            self.draw_attach_button(mouse_pos)
+            self.draw_pass_button(mouse_pos)
             self.draw_energy()
             self.draw_active_card_move()
             
