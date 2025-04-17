@@ -79,11 +79,16 @@ class PokemonCardGame:
         self.active_input_text = ""
         self.message_log = []
         self.should_draw_message = True
+        self.game_over = False
 
-        from game import Game
+        #from game import Game
         self.game = Game()
         self.running = True
         self.font = pygame.font.SysFont(None, 24)
+        
+        # load & scale the deck‐build phase sprite
+        self.deck_sprite = pygame.image.load("sprites/tcg.png").convert_alpha()
+        self.deck_sprite = pygame.transform.scale(self.deck_sprite, (550, 325))
         
         # Begin deck selection before starting game loop.
         self.deck_selection_phase()
@@ -138,6 +143,12 @@ class PokemonCardGame:
                     f"Selected ({len(chosen_cards)}/10): " + ", ".join([str(p["Number"]) for p in chosen_cards]),
                     True, (0, 0, 0))
                 self.screen.blit(sel_text, (300, 50))
+
+                # draw the tcg.png sprite on the right
+                sprite_x = self.screen.get_width() - self.deck_sprite.get_width() - 150
+                sprite_y = 125
+                self.screen.blit(self.deck_sprite, (sprite_x, sprite_y))
+
                 pygame.display.flip()
             # Build a deck for the player based on the chosen cards.
             deck = []
@@ -171,7 +182,7 @@ class PokemonCardGame:
             for card in starting_hand:
                 player.hand.append(card)
                 player.deck.remove(card)
-            self.set_message(f"Player {player.name} deck selection complete.")
+            self.set_message(f"Deck selection complete.")
         
         # Stop opening music once deck selection is finished.
         pygame.mixer.music.stop()
@@ -538,21 +549,22 @@ class PokemonCardGame:
             self.draw_pass_button(mouse_pos)
             self.draw_energy()
             self.draw_active_card_move()
-            
+
+            # draw the input box if we’re in text‐entry mode
             if self.input_active:
                 self.draw_input_box()
-            
-            if self.should_draw_message:
+
+            # Only draw the standard message if the game hasn’t ended
+            if self.should_draw_message and not self.game_over:
                 self.draw_message()
 
             # Winning condition check...
             if self.game.state.playerA.points >= 3 or self.game.state.playerB.points >= 3:
-                self.should_draw_game_ui = False
-                
                 winner = "Player A" if self.game.state.playerA.points >= 3 else "Player B"
                 self.set_message(f"{winner} won!")
                 self.draw_message(425, self.screen.get_height() // 2)
-            
+                self.game_over = True    # Prevent the generic draw next frames
+
             pygame.display.flip()
             pygame.time.delay(100)
 
