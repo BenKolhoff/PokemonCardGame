@@ -41,6 +41,7 @@ class PokemonCardGame:
     def deck_selection_phase(self):
         # Start playing opening music on loop
         pygame.mixer.music.load("sounds/opening.mp3")
+        pygame.mixer.music.set_volume(0.3)  # Lower volume for background music
         pygame.mixer.music.play(-1)
         
         scroll_offset = 0  # New variable to track vertical scroll offset
@@ -231,6 +232,10 @@ class PokemonCardGame:
     def attack_action(self):
         current_card = self.game.state.current_player.active_card
         if current_card is not None:
+            # Load the tackle sound and set its volume to maximum (1.0)
+            tackle_sound = pygame.mixer.Sound('sounds/Tackle.mp3')
+            tackle_sound.set_volume(1.0)
+            tackle_sound.play()
             try:
                 if 0 <= 0 < len(current_card.moves):
                     move = current_card.moves[0]
@@ -240,11 +245,11 @@ class PokemonCardGame:
                     self.game.state.change_player()
                     self.set_message(attack_message)
                 else:
-                    self.set_message("Error: The specified move is not valid for the active card")
+                    self.set_message("The specified move is not valid for the active card")
             except Exception as ex:
                 self.set_message("Attack error: " + str(ex))
         else:
-            self.set_message("Error: You cannot attack without an active card")
+            self.set_message("You cannot attack without an active card")
 
     def events(self):
         for event in pygame.event.get():
@@ -279,7 +284,7 @@ class PokemonCardGame:
                             index = int(self.active_input_text)
                             self.game.state.current_player.bench_card(index)
                     except ValueError:
-                        self.set_message("Error: Please enter a valid integer for the card index")
+                        self.set_message("Please enter a valid integer for the card index")
                     self.input_active = False
                 elif event.key == pygame.K_BACKSPACE:
                     self.active_input_text = self.active_input_text[:-1]
@@ -302,11 +307,11 @@ class PokemonCardGame:
                         current_card.attack(other_player.active_card, move)
                         self.game.state.change_player()
                     else:
-                        self.set_message("Error: The specified move is not valid for the active card")
+                        self.set_message("The specified move is not valid for the active card")
                 except ValueError:
-                    self.set_message("Error: Please enter a valid integer for the move index")
+                    self.set_message("Please enter a valid integer for the move index")
             else:
-                self.set_message("Error: You cannot attack without an active card")
+                self.set_message("You cannot attack without an active card")
         elif action[0] == "state":
             self.game.state.print_state()
         elif action[0] == "hand":
@@ -318,7 +323,7 @@ class PokemonCardGame:
                 index = int(action[1])
                 self.game.state.current_player.set_active_card(index)
             except ValueError:
-                self.set_message("Error: Please enter a valid integer for the card index")
+                self.set_message("Please enter a valid integer for the card index")
             # Check if both players have an active card.
             if self.game.state.activate_card_phase:
                 self.game.state.change_player()
@@ -328,11 +333,12 @@ class PokemonCardGame:
         elif action[0] == "pass":
             self.game.state.change_player()
         else:
-            self.set_message("Error: That is not a valid action")
+            self.set_message("That is not a valid action")
 
     def run(self):
         # Start battle phase music
         pygame.mixer.music.load("sounds/battle.mp3")
+        pygame.mixer.music.set_volume(0.3)  # Lower volume for background music
         pygame.mixer.music.play(-1)
         
         while self.running:

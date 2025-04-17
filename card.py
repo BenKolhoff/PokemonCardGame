@@ -47,9 +47,9 @@ class Card:
     '''
     def attack(self, target, move):
         if target is None:
-            return "Error: Invalid target (if the target player has no active card, you must pass)"
+            return "Opponent has no active card, you must pass)"
         elif move is None:
-            return "Error: Invalid move"
+            return "Invalid move"
 
         target_is_weak = target.weakness == self.type
         damage = int(move.damage * 1.5) if target_is_weak else move.damage
