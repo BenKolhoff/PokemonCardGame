@@ -5,21 +5,22 @@ from player import Player
 A class representing Pokemon cards.
 
 Attributes
-name (str) - The name of the card
-card_type (str) - The type of the card
-hp (int) - The starting health of the card
-weakness (str) - The card's type weakness
-retreat_cost (int) - The cost to retreat the card
-evolves_from (str) - The name of the card this card evolves from
-moves (Move[]) - The list of moves the card can use
-owner (Player) - The player who owns this card
+name (str) - The name of the card.
+card_type (str) - The type of the card.
+hp (int) - The starting health of the card.
+weakness (str) - The card's type weakness.
+retreat_cost (int) - The cost to retreat the card.
+evolves_from (str) - The name of the card this card evolves from.
+moves (Move[]) - The list of moves the card can use.
+owner (Player) - The player who owns this card.
 
 Methods
-attack (target: Card, move: Move) -> None - Attacks the target with the specified move
-evolve (new: Card) -> None - Evolves the card into the specified card
-take_damage (amount: int) -> None - Subtracts the specified amount from the card's HP
-attach_energy -> None - Increases the energy of this card by 1
-retreat -> None - Retreats the card to the owner's bench
+attack (target: Card, move: Move) -> None - Attacks the target with the specified move.
+evolve (new: Card) -> None - Evolves the card into the specified card.
+take_damage (amount: int) -> None - Subtracts the specified amount from the card's HP.
+attach_energy -> None - Increases the energy of this card by 1.
+retreat -> None - Retreats the card to the owner's bench.
+update_name -> None - Updates the name to show the amount of energy the card currently has.
 '''
 class Card:
     def __init__(self, name, card_type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None, moves=[], owner=None):

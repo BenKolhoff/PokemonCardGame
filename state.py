@@ -9,7 +9,7 @@ Represents the state of the game, not meant to be instantiated outside of the Ga
 Attributes:
 playerA (Player) - An instance of the Player class
 playerB (Player) - An instance of the Player class
-current_player (Player) - The playe rwhose turn it is
+current_player (Player) - The player whose turn it is
 activate_card_phase (bool) - A boolean which dictates whether or not it is the starting activation phase or not
 
 Methods:
