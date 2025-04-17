@@ -1,3 +1,4 @@
+import random
 from card import Card
 from move import Move
 from game import Game
@@ -18,26 +19,97 @@ class PokemonCardGame:
 
         self.running = True
         self.game = Game()
+        self.font = pygame.font.SysFont(None, 24)
 
-        # Create a button rectangle for "Attack" and initialize a font for its text.
+        # UI buttons and input setup...
         self.attack_button_rect = pygame.Rect(300, 550, 100, 40)
         self.draw_button_rect = pygame.Rect(175, 550, 100, 40)
         self.bench_button_rect = pygame.Rect(425, 550, 100, 40)
-        self.font = pygame.font.SysFont(None, 24)
-
-        # New UI element for setting an active card.
         self.active_button_rect = pygame.Rect(50, 550, 100, 40)
+        self.input_box_rect = pygame.Rect(50, 500, 100, 30)
         self.input_active = False
         self.current_input_src = None
         self.active_input_text = ""
-        self.input_box_rect = pygame.Rect(50, 500, 100, 30)
-
-        # Message log to display multiple messages.
         self.message_log = []
+        
+        # Begin deck selection before starting game loop.
+        self.deck_selection_phase()
 
     def set_message(self, message):
-        # Append the new message to the log.
         self.message_log.append(message)
+
+    def deck_selection_phase(self):
+        scroll_offset = 0  # New variable to track vertical scroll offset
+        # Let each player choose 10 cards from self.game.pokemon using the UI.
+        for player in self.game.state.get_player_list():
+            chosen_cards = []  # Will hold the JSON objects for the chosen Pokémon.
+            while len(chosen_cards) < 10 and self.running:
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        self.running = False
+                        pygame.quit()
+                        sys.exit()
+                    elif event.type == pygame.MOUSEWHEEL:
+                        # Adjust the scroll offset (tweak the multiplier 30 as needed)
+                        scroll_offset += event.y * 30
+                    elif event.type == pygame.MOUSEBUTTONDOWN:
+                        # Display the list, with scroll offset.
+                        for index, poke in enumerate(self.game.pokemon):
+                            y = 50 + index * 30 + scroll_offset
+                            rect = pygame.Rect(50, y, 200, 25)
+                            if rect.collidepoint(event.pos) and poke not in chosen_cards:
+                                chosen_cards.append(poke)
+                                self.set_message(f"Player {player.name} selected {poke['Name']} ({len(chosen_cards)}/10)")
+                # Redraw the deck selection screen.
+                self.screen.fill(self.bg_color)
+                prompt = self.font.render(f"Player {player.name}: Select 10 cards.", True, (0, 0, 0))
+                self.screen.blit(prompt, (50, 10))
+                # Draw available Pokémon using scroll_offset.
+                for index, poke in enumerate(self.game.pokemon):
+                    y = 50 + index * 30 + scroll_offset
+                    poke_text = self.font.render(f"{poke['Number']}: {poke['Name']}", True, (0, 0, 0))
+                    self.screen.blit(poke_text, (50, y))
+                # Display currently selected numbers.
+                sel_text = self.font.render(
+                    f"Selected ({len(chosen_cards)}/10): " + ", ".join([str(p["Number"]) for p in chosen_cards]),
+                    True, (0, 0, 0))
+                self.screen.blit(sel_text, (300, 50))
+                pygame.display.flip()
+            # Build a deck for the player based on the chosen cards.
+            deck = []
+            for poke in chosen_cards:
+                new_card = Card(
+                    poke['Name'],
+                    poke['Type'],
+                    poke['HP'],
+                    poke['Stage'],
+                    poke['Weakness'],
+                    poke['Retreat'],
+                    poke['evolves_from'],
+                    None,
+                    player
+                )
+                if 'Moves' in poke:
+                    temp_moves = []
+                    for move_name in poke['Moves']:
+                        for move in self.game.moves:
+                            if move['Name'] == move_name:
+                                temp_move = Move(move['Name'], move['Damage'], move['Cost'])
+                                temp_moves.append(temp_move)
+                    new_card.moves = temp_moves
+                deck.append(new_card)
+            # Override any pre-existing deck and hand
+            player.set_deck(deck)
+            player.hand = []
+            # Randomly draw 5 cards as starting hand.
+            if len(player.deck) >= 5:
+                starting_hand = random.sample(player.deck, 5)
+            else:
+                starting_hand = player.deck[:]
+            for card in starting_hand:
+                player.hand.append(card)
+                player.deck.remove(card)
+            self.set_message(f"Player {player.name} deck selection complete.")
 
     def draw_message(self):
         # Display only the most recent message at the bottom middle of the screen.
@@ -258,31 +330,25 @@ class PokemonCardGame:
             self.set_message("Error: That is not a valid action")
 
     def run(self):
-        """Main game loop."""
         while self.running:
             self.events()
-            # Redraw background and buttons every loop iteration.
             self.screen.fill(self.bg_color)
-            self.draw_turn_info()  # Draw the current player's turn
-            self.draw_points()     # Display players' points
-            self.draw_active_cards()  # Display both players' active cards
-            self.draw_hand_options()    # Display current player's hand options
-            self.draw_benched_cards() # Display both players' benched cards
+            self.draw_turn_info()
+            self.draw_points()
+            self.draw_active_cards()
+            self.draw_hand_options()
+            self.draw_benched_cards()
             self.draw_attack_button()
             self.draw_active_button()
             self.draw_draw_button()
             self.draw_bench_button()
             if self.input_active:
                 self.draw_input_box()
-            # Draw the message log on screen.
             self.draw_message()
-            # Check for a winning condition.
+            # Winning condition check...
             if self.game.state.playerA.points >= 3 or self.game.state.playerB.points >= 3:
                 winner = "Player A" if self.game.state.playerA.points >= 3 else "Player B"
                 self.set_message(f"{winner} won!")
-                # self.running = False  <-- Comment out or remove this line to keep the game running
-
-            # Update the display (flip the buffer).
             pygame.display.flip()
             pygame.time.delay(100)
 
