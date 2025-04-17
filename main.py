@@ -39,6 +39,10 @@ class PokemonCardGame:
         self.message_log.append(message)
 
     def deck_selection_phase(self):
+        # Start playing opening music on loop
+        pygame.mixer.music.load("sounds/opening.mp3")
+        pygame.mixer.music.play(-1)
+        
         scroll_offset = 0  # New variable to track vertical scroll offset
         # Let each player choose 10 cards from self.game.pokemon using the UI.
         for player in self.game.state.get_player_list():
@@ -50,26 +54,21 @@ class PokemonCardGame:
                         pygame.quit()
                         sys.exit()
                     elif event.type == pygame.MOUSEWHEEL:
-                        # Adjust the scroll offset (tweak the multiplier 30 as needed)
                         scroll_offset += event.y * 30
                     elif event.type == pygame.MOUSEBUTTONDOWN:
-                        # Display the list, with scroll offset.
                         for index, poke in enumerate(self.game.pokemon):
                             y = 50 + index * 30 + scroll_offset
                             rect = pygame.Rect(50, y, 200, 25)
                             if rect.collidepoint(event.pos) and poke not in chosen_cards:
                                 chosen_cards.append(poke)
                                 self.set_message(f"Player {player.name} selected {poke['Name']} ({len(chosen_cards)}/10)")
-                # Redraw the deck selection screen.
                 self.screen.fill(self.bg_color)
                 prompt = self.font.render(f"Player {player.name}: Select 10 cards.", True, (0, 0, 0))
                 self.screen.blit(prompt, (50, 10))
-                # Draw available Pokémon using scroll_offset.
                 for index, poke in enumerate(self.game.pokemon):
                     y = 50 + index * 30 + scroll_offset
                     poke_text = self.font.render(f"{poke['Number']}: {poke['Name']}", True, (0, 0, 0))
                     self.screen.blit(poke_text, (50, y))
-                # Display currently selected numbers.
                 sel_text = self.font.render(
                     f"Selected ({len(chosen_cards)}/10): " + ", ".join([str(p["Number"]) for p in chosen_cards]),
                     True, (0, 0, 0))
@@ -98,10 +97,8 @@ class PokemonCardGame:
                                 temp_moves.append(temp_move)
                     new_card.moves = temp_moves
                 deck.append(new_card)
-            # Override any pre-existing deck and hand
             player.set_deck(deck)
             player.hand = []
-            # Randomly draw 5 cards as starting hand.
             if len(player.deck) >= 5:
                 starting_hand = random.sample(player.deck, 5)
             else:
@@ -110,6 +107,9 @@ class PokemonCardGame:
                 player.hand.append(card)
                 player.deck.remove(card)
             self.set_message(f"Player {player.name} deck selection complete.")
+        
+        # Stop opening music once deck selection is finished.
+        pygame.mixer.music.stop()
 
     def draw_message(self):
         # Display only the most recent message at the bottom middle of the screen.
@@ -328,6 +328,10 @@ class PokemonCardGame:
             self.set_message("Error: That is not a valid action")
 
     def run(self):
+        # Start battle phase music
+        pygame.mixer.music.load("sounds/battle.mp3")
+        pygame.mixer.music.play(-1)
+        
         while self.running:
             self.events()
             self.screen.fill(self.bg_color)
