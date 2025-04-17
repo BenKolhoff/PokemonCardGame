@@ -50,6 +50,8 @@ class Card:
             return "Opponent has no active card, you must pass)"
         elif move is None:
             return "Invalid move"
+        elif self.energy < move.cost:
+            return "Not enough energy"
 
         target_is_weak = target.weakness == self.type
         damage = int(move.damage * 1.5) if target_is_weak else move.damage
@@ -58,6 +60,10 @@ class Card:
         msg += f"\n{target.name} HP is now {target.hp}"
         if target.owner.active_card is None:
             self.owner.increase_points()
+        
+        self.energy -= move.cost
+        self.update_name()
+        
         return msg
 
     '''
@@ -108,6 +114,7 @@ class Card:
     '''
     def attach_energy(self):
         self.energy += 1
+        self.update_name()
 
     '''
     Moves the card from being "active" to the bench.
@@ -118,6 +125,14 @@ class Card:
         if self.energy >= self.retreat_cost:
             # move from active to bench
             pass
+
+    '''
+    Updates the name to show the amount of energy the card currently has.
+
+    return: None
+    '''
+    def update_name(self):
+        self.name = f"{"*" * self.energy}{self.name}"
 
     def __str__(self):
         card_str = f"{self.name}::"

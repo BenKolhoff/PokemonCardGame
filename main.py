@@ -26,6 +26,7 @@ class PokemonCardGame:
         self.draw_button_rect = pygame.Rect(175, 550, 100, 40)
         self.bench_button_rect = pygame.Rect(425, 550, 100, 40)
         self.active_button_rect = pygame.Rect(50, 550, 100, 40)
+        self.attach_button_rect = pygame.Rect(550, 550, 100, 40)
         self.input_box_rect = pygame.Rect(50, 500, 100, 30)
         self.input_active = False
         self.current_input_src = None
@@ -155,6 +156,14 @@ class PokemonCardGame:
         self.screen.blit(text_surface, text_rect)
         pygame.display.update(self.bench_button_rect)
 
+    def draw_attach_button(self):
+        # Draw a blue button with white "Attach" text.
+        pygame.draw.rect(self.screen, (0, 0, 200), self.attach_button_rect)
+        text_surface = self.font.render("Attach", True, (255, 255, 255))
+        text_rect = text_surface.get_rect(center=self.attach_button_rect.center)
+        self.screen.blit(text_surface, text_rect)
+        pygame.display.update(self.attach_button_rect)
+
     def draw_input_box(self):
         # Draw the input rectangle and the current text.
         pygame.draw.rect(self.screen, (200, 200, 200), self.input_box_rect)
@@ -182,6 +191,10 @@ class PokemonCardGame:
 
     def draw_energy(self):
         self.screen.blit(self.font.render(f"Current Energy: {self.game.state.current_player.energy}", True, (0, 0, 0)), (850, 570))
+
+    def draw_active_card_move(self):
+        if self.game.state.current_player.active_card is not None:
+            self.screen.blit(self.font.render(f"Active Card Move: {self.game.state.current_player.active_card.moves[0]}", True, (0, 0, 0)), (20, 500))
 
     def draw_active_cards(self):
         player_a = self.game.state.playerA
@@ -273,6 +286,11 @@ class PokemonCardGame:
                         self.input_active = True
                         self.current_input_src = self.bench_button_rect
                         self.active_input_text = ""
+                elif self.attach_button_rect.collidepoint(event.pos):
+                    if True: # TODO: Change to condition checking if there are valid cards to attach energy to
+                        self.input_active = True
+                        self.current_input_src = self.attach_button_rect
+                        self.active_input_text = ""
             elif event.type == pygame.KEYDOWN and self.input_active:
                 if event.key == pygame.K_RETURN:
                     # Finalize input and attempt to set the active card.
@@ -283,6 +301,9 @@ class PokemonCardGame:
                         elif self.current_input_src is self.bench_button_rect:
                             index = int(self.active_input_text)
                             self.game.state.current_player.bench_card(index)
+                        elif self.current_input_src is self.attach_button_rect:
+                            index = int(self.active_button_rect)
+                            #self.game.state.current_player.
                     except ValueError:
                         self.set_message("Please enter a valid integer for the card index")
                     self.input_active = False
@@ -353,7 +374,9 @@ class PokemonCardGame:
             self.draw_active_button()
             self.draw_draw_button()
             self.draw_bench_button()
+            self.draw_attach_button()
             self.draw_energy()
+            self.draw_active_card_move()
             if self.input_active:
                 self.draw_input_box()
             self.draw_message()
