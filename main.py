@@ -41,6 +41,7 @@ class PokemonCardGame:
     def deck_selection_phase(self):
         # Start playing opening music on loop
         pygame.mixer.music.load("sounds/opening.mp3")
+        pygame.mixer.music.set_volume(0.3)  # Lower volume for background music
         pygame.mixer.music.play(-1)
         
         scroll_offset = 0  # New variable to track vertical scroll offset
@@ -228,6 +229,10 @@ class PokemonCardGame:
     def attack_action(self):
         current_card = self.game.state.current_player.active_card
         if current_card is not None:
+            # Load the tackle sound and set its volume to maximum (1.0)
+            tackle_sound = pygame.mixer.Sound('sounds/Tackle.mp3')
+            tackle_sound.set_volume(1.0)
+            tackle_sound.play()
             try:
                 if 0 <= 0 < len(current_card.moves):
                     move = current_card.moves[0]
@@ -330,6 +335,7 @@ class PokemonCardGame:
     def run(self):
         # Start battle phase music
         pygame.mixer.music.load("sounds/battle.mp3")
+        pygame.mixer.music.set_volume(0.3)  # Lower volume for background music
         pygame.mixer.music.play(-1)
         
         while self.running:
