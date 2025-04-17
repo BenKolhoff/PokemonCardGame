@@ -5,21 +5,22 @@ from player import Player
 A class representing Pokemon cards.
 
 Attributes
-name (str) - The name of the card
-card_type (str) - The type of the card
-hp (int) - The starting health of the card
-weakness (str) - The card's type weakness
-retreat_cost (int) - The cost to retreat the card
-evolves_from (str) - The name of the card this card evolves from
-moves (Move[]) - The list of moves the card can use
-owner (Player) - The player who owns this card
+name (str) - The name of the card.
+card_type (str) - The type of the card.
+hp (int) - The starting health of the card.
+weakness (str) - The card's type weakness.
+retreat_cost (int) - The cost to retreat the card.
+evolves_from (str) - The name of the card this card evolves from.
+moves (Move[]) - The list of moves the card can use.
+owner (Player) - The player who owns this card.
 
 Methods
-attack (target: Card, move: Move) -> None - Attacks the target with the specified move
-evolve (new: Card) -> None - Evolves the card into the specified card
-take_damage (amount: int) -> None - Subtracts the specified amount from the card's HP
-attach_energy -> None - Increases the energy of this card by 1
-retreat -> None - Retreats the card to the owner's bench
+attack (target: Card, move: Move) -> None - Attacks the target with the specified move.
+evolve (new: Card) -> None - Evolves the card into the specified card.
+take_damage (amount: int) -> None - Subtracts the specified amount from the card's HP.
+attach_energy -> None - Increases the energy of this card by 1.
+retreat -> None - Retreats the card to the owner's bench.
+update_name -> None - Updates the name to show the amount of energy the card currently has.
 '''
 class Card:
     def __init__(self, name, card_type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None, moves=[], owner=None):
@@ -50,6 +51,8 @@ class Card:
             return "Opponent has no active card, you must pass)"
         elif move is None:
             return "Invalid move"
+        elif self.energy < move.cost:
+            return "Not enough energy"
 
         target_is_weak = target.weakness == self.type
         damage = int(move.damage * 1.5) if target_is_weak else move.damage
@@ -58,6 +61,10 @@ class Card:
         msg += f"\n{target.name} HP is now {target.hp}"
         if target.owner.active_card is None:
             self.owner.increase_points()
+        
+        self.energy -= move.cost
+        self.update_name()
+        
         return msg
 
     '''
@@ -108,6 +115,7 @@ class Card:
     '''
     def attach_energy(self):
         self.energy += 1
+        self.update_name()
 
     '''
     Moves the card from being "active" to the bench.
@@ -118,6 +126,14 @@ class Card:
         if self.energy >= self.retreat_cost:
             # move from active to bench
             pass
+
+    '''
+    Updates the name to show the amount of energy the card currently has.
+
+    return: None
+    '''
+    def update_name(self):
+        self.name = f"{"*" * self.energy}{self.name}"
 
     def __str__(self):
         card_str = f"{self.name}::"

@@ -13,4 +13,4 @@ class Move:
         self.cost = cost if isinstance(cost, int) else 0
 
     def __str__(self):
-        return f"{self.name} - {self.damage} damage, cost {self.cost}"
+        return f"{self.name} ({self.damage} damage, {self.cost} energy)"

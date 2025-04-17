@@ -39,19 +39,19 @@ class Player:
     '''
     def set_active_card(self, index):
         if self.active_card is not None:
-            print("You already have an active card. You must retreat that first.")
+            return "You already have an active card. You must retreat that first."
         elif type(index) != int:
-            print("Index must be an integer")
+            return "Index must be an integer"
         elif len(self.hand) == 0:
-            print("You cannot set an active card with an empty hand.")
+            return "You cannot set an active card with an empty hand."
         elif index < 0 or index >= len(self.hand):
-            print("The specified index is out of bounds of your hand")
+            return "The specified index is out of bounds of your hand"
         elif self.hand[index].stage != "Basic":
-            print("Only basic cards can be set as active.")
+            return "Only basic cards can be set as active."
         else:
             self.active_card = self.hand[index]
             self.hand.pop(index)
-            print("Your active card is now " + self.active_card.name)
+            return "Your active card is now " + self.active_card.name
 
     '''
     Sets the player's active card from the bench if they specify a valid index and don't already have a card.
@@ -62,19 +62,19 @@ class Player:
     '''
     def set_active_from_bench(self, index):
         if self.active_card is not None:
-            print("You already have an active card. You must retreat that first.")
+            return "You already have an active card. You must retreat that first."
         elif type(index) != int:
-            print("Index must be an integer")
+            return "Index must be an integer"
         elif len(self.benched_cards) == 0:
-            print("You cannot set an active card because your bench is empty.")
+            return "You cannot set an active card because your bench is empty."
         elif index < 0 or index >= len(self.benched_cards):
-            print("The specified index is out of bounds of your bench")
+            return "The specified index is out of bounds of your bench"
         elif self.benched_cards[index].stage != "Basic":
-            print("Only basic cards can be set as active.")
+            return "Only basic cards can be set as active."
         else:
             self.active_card = self.benched_cards[index]
             self.benched_cards.pop(index)
-            print("Your active card is now " + self.active_card.name)
+            return "Your active card is now " + self.active_card.name
 
     '''
     Moves the given card to the player's bench.
@@ -85,15 +85,15 @@ class Player:
     '''
     def bench_card(self, index):
         if type(index) != int:
-            print("Index must be an integer")
+            return "Index must be an integer"
         elif len(self.hand) == 0:
-            print("You cannot set an active card with an empty hand.")
+            return "You cannot set an active card with an empty hand."
         elif index < 0 or index >= len(self.hand):
-            print("The specified index is out of bounds of your hand")
+            return "The specified index is out of bounds of your hand"
         else:
             card = self.hand[index]
             if card.stage != "Basic":
-                print("Only basic cards can be benched")
+                return "Only basic cards can be benched"
             else:
                 self.benched_cards.append(card)
                 self.hand.pop(index)
@@ -138,8 +138,7 @@ class Player:
     '''
     def draw_card(self):
         if not self.deck:  # Check if the deck is empty
-            print("Cannot draw, your deck is empty")
-            return
+            return "Cannot draw, your deck is empty"
 
         deck_top = self.deck[0]
         self.hand.append(deck_top)

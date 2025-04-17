@@ -5,7 +5,50 @@ from game import Game
 import pygame
 import sys
 
+'''
+The main class of the game, acts as the entry point and handles display/UI input and communicates with its own Game instance.
 
+Attributes:
+screen (Surface) - The main screen surface.
+bg_color ((int, int, int)) - The background color (as an int triple).
+running (boolean) - Whether or not the game is running.
+game (Game) - An instance of Game that handles the actual logic of the game.
+font (Font) - The font used by all text.
+attack_button_rect (Rect) - The Rect used by the attack button.
+draw_button_rect (Rect) - The Rect used by the draw button.
+bench_button_rect (Rect) - The Rect used by the bench button.
+active_button_rect (Rect) - The Rect used by the active button.
+attach_button_rect (Rect) - The Rect used by the attach button.
+pass_button_rect (Rect) - The Rect used by the pass button.
+input_box_rect (Rect) - The Rect used by the input text field.
+input_active (boolean) - Whether or not the input box is taking input/displaying.
+current_input_src (Rect) - The rect of the last button clicked that calls for input_active to be true.
+active_input_text (str) - The message of the active input text.
+message_log (str[]) - A log of all messages the game has output to the user.
+should_draw_message (boolean) -> Whether or not the last message of message_log should be shown to the user.
+
+Methods:
+set_message(message: str) -> None - Sets the current message that is displayed above the buttons.
+deck_selection_phase -> None - Creates and handles the logic for the deck selection screen.
+draw_message -> None - Draws the current message for the user above the buttons.
+draw_attack_button -> None - Handles drawing the attack button.
+draw_active_button -> None - Handles drawing the active button.
+draw_draw_button -> None - Handles drawing the draw button.
+draw_bench_button -> None - Handles drawing the bench button.
+draw_attach_button -> None - Handles drawing the attach button.
+draw_pass_button -> None - Handles drawing the pass button.
+draw_input_box -> None - Handles drawing the input box (for entering card indexes).
+draw_turn_info -> None - Handles drawing the text that displays whose turn it is.
+draw_points -> None - Handles drawing the text that displays how many points each player has.
+draw_energy -> None - Handles drawing the text that displays how much energy current player has.
+draw_active_card_move -> None - Handles drawing the text that displays the move of the active card.
+draw_active_cards -> None - Handles drawing the active card text for each player.
+draw_hand_options -> None - Handles drawing the current player's hand.
+draw_benched_cards -> None - Handles drawing the bench for each player.
+attack_action -> None - Handles the attack action.
+events -> None - Handles event logic for UI inputs.
+run -> None - The main loop of the game.
+'''
 class PokemonCardGame:
     def __init__(self):
         pygame.init()
@@ -26,18 +69,33 @@ class PokemonCardGame:
         self.draw_button_rect = pygame.Rect(175, 550, 100, 40)
         self.bench_button_rect = pygame.Rect(425, 550, 100, 40)
         self.active_button_rect = pygame.Rect(50, 550, 100, 40)
+        self.attach_button_rect = pygame.Rect(550, 550, 100, 40)
+        self.pass_button_rect = pygame.Rect(675, 550, 100, 40)
         self.input_box_rect = pygame.Rect(50, 500, 100, 30)
+        self.input_box_rect_positions = [(50, 500), (425, 500), (550, 500)]
         self.input_active = False
         self.current_input_src = None
         self.active_input_text = ""
         self.message_log = []
+        self.should_draw_message = True
         
         # Begin deck selection before starting game loop.
         self.deck_selection_phase()
 
+    '''
+    Sets the current message that is displayed above the buttons.
+
+    return: None
+    '''
     def set_message(self, message):
+        self.should_draw_message = True
         self.message_log.append(message)
 
+    '''
+    Creates and handles the logic for the deck selection screen.
+
+    return: None
+    '''
     def deck_selection_phase(self):
         # Start playing opening music on loop
         pygame.mixer.music.load("sounds/opening.mp3")
@@ -112,6 +170,11 @@ class PokemonCardGame:
         # Stop opening music once deck selection is finished.
         pygame.mixer.music.stop()
 
+    '''
+    Draws the current message for the user above the buttons.
+    
+    return: None
+    '''
     def draw_message(self):
         # Display only the most recent message at the bottom middle of the screen.
         if self.message_log:
@@ -120,17 +183,28 @@ class PokemonCardGame:
             text_rect = text_surface.get_rect()
             screen_width = self.screen.get_width()
             screen_height = self.screen.get_height()
-            text_rect.midbottom = (screen_width // 2, screen_height - 60)
+            text_rect.x = 20
+            text_rect.y = screen_height - 140
             self.screen.blit(text_surface, text_rect)
 
+    '''
+    Handles drawing the attack button.
+
+    return: None
+    '''
     def draw_attack_button(self):
         # Draw a green button with white "Attack" text.
-        pygame.draw.rect(self.screen, (0, 200, 0), self.attack_button_rect)
+        pygame.draw.rect(self.screen, (0, 0, 200), self.attack_button_rect)
         text_surface = self.font.render("Attack", True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=self.attack_button_rect.center)
         self.screen.blit(text_surface, text_rect)
         pygame.display.update(self.attack_button_rect)
 
+    '''
+    Handles drawing the active button.
+
+    return: None
+    '''
     def draw_active_button(self):
         # Draw a blue button with white "Set Active" text.
         pygame.draw.rect(self.screen, (0, 0, 200), self.active_button_rect)
@@ -139,6 +213,11 @@ class PokemonCardGame:
         self.screen.blit(text_surface, text_rect)
         pygame.display.update(self.active_button_rect)
 
+    '''
+    Handles drawing the draw button.
+
+    return: None
+    '''
     def draw_draw_button(self):
         # Draw a blue button with white "Draw" text.
         pygame.draw.rect(self.screen, (0, 0, 200), self.draw_button_rect)
@@ -147,14 +226,50 @@ class PokemonCardGame:
         self.screen.blit(text_surface, text_rect)
         pygame.display.update(self.draw_button_rect)
 
+    '''
+    Handles drawing the bench button.
+
+    return: None
+    '''
     def draw_bench_button(self):
         # Draw a green button with white "Bench" text.
-        pygame.draw.rect(self.screen, (0, 200, 0), self.bench_button_rect)
+        pygame.draw.rect(self.screen, (0, 0, 200), self.bench_button_rect)
         text_surface = self.font.render("Bench", True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=self.bench_button_rect.center)
         self.screen.blit(text_surface, text_rect)
         pygame.display.update(self.bench_button_rect)
 
+    '''
+    Handles drawing the attach button.
+
+    return: None
+    '''
+    def draw_attach_button(self):
+        # Draw a blue button with white "Attach" text.
+        pygame.draw.rect(self.screen, (0, 0, 200), self.attach_button_rect)
+        text_surface = self.font.render("Attach", True, (255, 255, 255))
+        text_rect = text_surface.get_rect(center=self.attach_button_rect.center)
+        self.screen.blit(text_surface, text_rect)
+        pygame.display.update(self.attach_button_rect)
+    
+    '''
+    Handles drawing the attach button.
+
+    return: None
+    '''
+    def draw_pass_button(self):
+        # Draw a blue button with white "Pass" text.
+        pygame.draw.rect(self.screen, (0, 0, 200), self.pass_button_rect)
+        text_surface = self.font.render("Pass", True, (255, 255, 255))
+        text_rect = text_surface.get_rect(center=self.pass_button_rect.center)
+        self.screen.blit(text_surface, text_rect)
+        pygame.display.update(self.pass_button_rect)
+
+    '''
+    Handles drawing the input box (for entering card indexes).
+
+    return: None
+    '''
     def draw_input_box(self):
         # Draw the input rectangle and the current text.
         pygame.draw.rect(self.screen, (200, 200, 200), self.input_box_rect)
@@ -163,12 +278,22 @@ class PokemonCardGame:
         self.screen.blit(text_surface, (self.input_box_rect.x + 5, self.input_box_rect.y + 5))
         pygame.display.update(self.input_box_rect)
 
+    '''
+    Handles drawing the text that displays whose turn it is.
+
+    return: None
+    '''
     def draw_turn_info(self):
         turn_text = f"Turn: Player {self.game.state.current_player.name}"
         text_surface = self.font.render(turn_text, True, (0, 0, 0))
         # Adjust the position as needed
         self.screen.blit(text_surface, (425, 20))
 
+    '''
+    Handles drawing the text that displays how many points each player has.
+
+    return: None
+    '''
     def draw_points(self):
         player_a = self.game.state.playerA
         player_b = self.game.state.playerB
@@ -180,9 +305,28 @@ class PokemonCardGame:
         self.screen.blit(a_surface, (20, 80))
         self.screen.blit(b_surface, (650, 80))
 
+    '''
+    Handles drawing the text that displays how much energy current player has.
+
+    return: None
+    '''
     def draw_energy(self):
         self.screen.blit(self.font.render(f"Current Energy: {self.game.state.current_player.energy}", True, (0, 0, 0)), (850, 570))
 
+    '''
+    Handles drawing the text that displays the move of the active card.
+
+    return: None
+    '''
+    def draw_active_card_move(self):
+        if self.game.state.current_player.active_card is not None:
+            self.screen.blit(self.font.render(f"Active Card Move: {self.game.state.current_player.active_card.moves[0]}", True, (0, 0, 0)), (20, self.screen.get_height() - 180))
+
+    '''
+    Handles drawing the active card text for each player.
+
+    return: None
+    '''
     def draw_active_cards(self):
         player_a = self.game.state.playerA
         player_b = self.game.state.playerB
@@ -197,8 +341,12 @@ class PokemonCardGame:
         self.screen.blit(a_surface, (20, 110))
         self.screen.blit(b_surface, (650, 110))
 
+    '''
+    Handles drawing the current player's hand.
+
+    return: None
+    '''
     def draw_hand_options(self):
-        """Display the current player's hand as selectable options."""
         hand = self.game.state.current_player.hand
         start_y = 150
         screen_width = self.screen.get_width()
@@ -210,6 +358,11 @@ class PokemonCardGame:
             text_rect.y = start_y + index * 20
             self.screen.blit(text_surface, text_rect)
 
+    '''
+    Handles drawing the bench for each player.
+
+    return: None
+    '''
     def draw_benched_cards(self):
         # Draw Player A's bench underneath active card (active card drawn at (20, 110))
         bench_text_surface_a = self.font.render("Bench:", True, (0, 0, 0))
@@ -229,6 +382,11 @@ class PokemonCardGame:
             text_surface = self.font.render(card_text, True, (0, 0, 0))
             self.screen.blit(text_surface, (650, 180 + index * 20))
 
+    '''
+    Handles the attack action.
+
+    return: None
+    '''
     def attack_action(self):
         current_card = self.game.state.current_player.active_card
         if current_card is not None:
@@ -251,6 +409,11 @@ class PokemonCardGame:
         else:
             self.set_message("You cannot attack without an active card")
 
+    '''
+    Handles event logic for UI inputs.
+
+    return: None
+    '''
     def events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -265,24 +428,52 @@ class PokemonCardGame:
                     self.input_active = True
                     self.current_input_src = self.active_button_rect
                     self.active_input_text = ""
+                    self.input_box_rect = pygame.Rect(self.input_box_rect_positions[0][0], self.input_box_rect_positions[0][1], self.input_box_rect.width, self.input_box_rect.height)
                 elif self.draw_button_rect.collidepoint(event.pos):
-                    self.game.state.current_player.draw_card()
-                    self.game.state.change_player()
+                    res = self.game.state.current_player.draw_card()
+                    if res is not None:
+                        self.set_message(res)
+                        self.should_draw_message = True
+                    else:
+                        self.should_draw_message = False
+                        self.game.state.change_player()
                 elif self.bench_button_rect.collidepoint(event.pos):
                     if len(self.game.state.current_player.benched_cards) < 3:
                         self.input_active = True
                         self.current_input_src = self.bench_button_rect
                         self.active_input_text = ""
+                        self.input_box_rect = pygame.Rect(self.input_box_rect_positions[1][0], self.input_box_rect_positions[1][1], self.input_box_rect.width, self.input_box_rect.height)
+                    else:
+                        self.set_message("Your bench is already full.")
+                elif self.attach_button_rect.collidepoint(event.pos):
+                    if True: # TODO: Change to condition checking if there are valid cards to attach energy to
+                        self.input_active = True
+                        self.current_input_src = self.attach_button_rect
+                        self.active_input_text = ""
+                        self.input_box_rect = pygame.Rect(self.input_box_rect_positions[2][0], self.input_box_rect_positions[2][1], self.input_box_rect.width, self.input_box_rect.height)
+                elif self.pass_button_rect.collidepoint(event.pos):
+                    self.game.state.change_player()
             elif event.type == pygame.KEYDOWN and self.input_active:
                 if event.key == pygame.K_RETURN:
                     # Finalize input and attempt to set the active card.
                     try:
                         if self.current_input_src is self.active_button_rect:
                             index = int(self.active_input_text)
-                            self.game.state.current_player.set_active_from_bench(index)
+                            res = self.game.state.current_player.set_active_from_bench(index)
+                            if res is not None:
+                                self.set_message(res)
+                            else:
+                                self.should_draw_message = False
                         elif self.current_input_src is self.bench_button_rect:
                             index = int(self.active_input_text)
-                            self.game.state.current_player.bench_card(index)
+                            res = self.game.state.current_player.bench_card(index)
+                            if res is not None:
+                                self.set_message(res)
+                            else:
+                                self.should_draw_message = False
+                        elif self.current_input_src is self.attach_button_rect:
+                            index = int(self.active_button_rect)
+                            #self.game.state.current_player.
                     except ValueError:
                         self.set_message("Please enter a valid integer for the card index")
                     self.input_active = False
@@ -290,51 +481,12 @@ class PokemonCardGame:
                     self.active_input_text = self.active_input_text[:-1]
                 else:
                     self.active_input_text += event.unicode
+   
+    '''
+    The main loop of the game.
 
-    def inputs(self):
-        # Retained console input if needed for other actions.
-        valid_actions = ["attack", "retreat", "state", "hand", "draw"]
-        action = input("Enter Action>>>").strip().split(' ')
-        if action[0] == "attack" and len(action) > 1:
-            current_card = self.game.state.current_player.active_card
-            if current_card is not None:
-                try:
-                    move_index = int(action[1])
-                    if 0 <= move_index < len(current_card.moves):
-                        move = current_card.moves[move_index]
-                        players = self.game.state.get_player_list()
-                        other_player = players[0] if self.game.state.current_player != players[0] else players[1]
-                        current_card.attack(other_player.active_card, move)
-                        self.game.state.change_player()
-                    else:
-                        self.set_message("The specified move is not valid for the active card")
-                except ValueError:
-                    self.set_message("Please enter a valid integer for the move index")
-            else:
-                self.set_message("You cannot attack without an active card")
-        elif action[0] == "state":
-            self.game.state.print_state()
-        elif action[0] == "hand":
-            self.game.state.current_player.print_hand()
-        elif action[0] == "draw":
-            self.game.state.current_player.draw_card()
-        elif action[0] == "active" and len(action) > 1:
-            try:
-                index = int(action[1])
-                self.game.state.current_player.set_active_card(index)
-            except ValueError:
-                self.set_message("Please enter a valid integer for the card index")
-            # Check if both players have an active card.
-            if self.game.state.activate_card_phase:
-                self.game.state.change_player()
-                both_active = (self.game.state.get_player_list()[0].active_card is not None and
-                               self.game.state.get_player_list()[1].active_card is not None)
-                self.game.state.activate_card_phase = not both_active
-        elif action[0] == "pass":
-            self.game.state.change_player()
-        else:
-            self.set_message("That is not a valid action")
-
+    return: None
+    '''
     def run(self):
         # Start battle phase music
         pygame.mixer.music.load("sounds/battle.mp3")
@@ -344,6 +496,7 @@ class PokemonCardGame:
         while self.running:
             self.events()
             self.screen.fill(self.bg_color)
+
             self.draw_turn_info()
             self.draw_points()
             self.draw_active_cards()
@@ -353,14 +506,22 @@ class PokemonCardGame:
             self.draw_active_button()
             self.draw_draw_button()
             self.draw_bench_button()
+            self.draw_attach_button()
+            self.draw_pass_button()
             self.draw_energy()
+            self.draw_active_card_move()
+            
             if self.input_active:
                 self.draw_input_box()
-            self.draw_message()
+            
+            if self.should_draw_message:
+                self.draw_message()
+
             # Winning condition check...
             if self.game.state.playerA.points >= 3 or self.game.state.playerB.points >= 3:
                 winner = "Player A" if self.game.state.playerA.points >= 3 else "Player B"
                 self.set_message(f"{winner} won!")
+            
             pygame.display.flip()
             pygame.time.delay(100)
 
