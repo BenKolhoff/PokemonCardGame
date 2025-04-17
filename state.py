@@ -23,6 +23,7 @@ class State:
         self.playerB = Player('B')
         self.__player_list = [self.playerA, self.playerB]
         self.current_player = self.playerA if current_player is None else current_player
+        self.current_player.energy += 1
         self.activate_card_phase = activate_card_phase if type(activate_card_phase) == bool else True
 
         # Only create a random deck if a deck doesn't already exist (deck selection already set deck if chosen).
@@ -59,6 +60,7 @@ class State:
     '''
     def change_player(self):
         self.current_player = self.playerA if self.current_player == self.playerB else self.playerB
+        self.current_player.energy += 1
     
     '''
     Print the state of the game in an easy-to-read format.
