@@ -369,7 +369,7 @@ class PokemonCardGame:
         self.screen.blit(bench_text_surface_a, (20, 150))
         player_a_bench = self.game.state.playerA.benched_cards
         for index, card in enumerate(player_a_bench):
-            card_text = f"{index}: {card.name} (HP: {card.hp})"
+            card_text = f"{index + 1}: {card.name} (HP: {card.hp})"
             text_surface = self.font.render(card_text, True, (0, 0, 0))
             self.screen.blit(text_surface, (20, 180 + index * 20))
 
@@ -378,7 +378,7 @@ class PokemonCardGame:
         self.screen.blit(bench_text_surface_b, (650, 150))
         player_b_bench = self.game.state.playerB.benched_cards
         for index, card in enumerate(player_b_bench):
-            card_text = f"{index}: {card.name} (HP: {card.hp})"
+            card_text = f"{index + 1}: {card.name} (HP: {card.hp})"
             text_surface = self.font.render(card_text, True, (0, 0, 0))
             self.screen.blit(text_surface, (650, 180 + index * 20))
 
@@ -391,9 +391,9 @@ class PokemonCardGame:
         current_card = self.game.state.current_player.active_card
         if current_card is not None:
             # Load the tackle sound and set its volume to maximum (1.0)
-            tackle_sound = pygame.mixer.Sound('sounds/Tackle.mp3')
-            tackle_sound.set_volume(1.0)
-            tackle_sound.play()
+            #tackle_sound = pygame.mixer.Sound('sounds/Tackle.mp3')
+            #tackle_sound.set_volume(1.0)
+            #tackle_sound.play()
             try:
                 if 0 <= 0 < len(current_card.moves):
                     move = current_card.moves[0]
@@ -446,11 +446,16 @@ class PokemonCardGame:
                     else:
                         self.set_message("Your bench is already full.")
                 elif self.attach_button_rect.collidepoint(event.pos):
-                    if True: # TODO: Change to condition checking if there are valid cards to attach energy to
+                    if self.game.state.current_player.active_card is None and len(self.game.state.current_player.benched_cards) == 0: 
+                        self.set_message("You must have an active or benched card to attach energy.")
+                    elif self.game.state.current_player.energy <= 0:
+                        self.set_message("You have no energy to attach to a card.")
+                    else:
                         self.input_active = True
                         self.current_input_src = self.attach_button_rect
                         self.active_input_text = ""
                         self.input_box_rect = pygame.Rect(self.input_box_rect_positions[2][0], self.input_box_rect_positions[2][1], self.input_box_rect.width, self.input_box_rect.height)
+                        self.should_draw_message = False
                 elif self.pass_button_rect.collidepoint(event.pos):
                     self.game.state.change_player()
             elif event.type == pygame.KEYDOWN and self.input_active:
@@ -459,7 +464,7 @@ class PokemonCardGame:
                     try:
                         if self.current_input_src is self.active_button_rect:
                             index = int(self.active_input_text)
-                            res = self.game.state.current_player.set_active_from_bench(index)
+                            res = self.game.state.current_player.set_active_from_bench(index - 1)
                             if res is not None:
                                 self.set_message(res)
                             else:
@@ -472,8 +477,16 @@ class PokemonCardGame:
                             else:
                                 self.should_draw_message = False
                         elif self.current_input_src is self.attach_button_rect:
-                            index = int(self.active_button_rect)
-                            #self.game.state.current_player.
+                            index = int(self.active_input_text)
+                            if index == 0 and self.game.state.current_player.active_card is not None: 
+                                self.game.state.current_player.active_card.attach_energy()
+                                self.game.state.current_player.energy -= 1
+                            else:
+                                if len(self.game.state.current_player.benched_cards) > 0 and index - 1 < len(self.game.state.current_player.benched_cards):
+                                    self.game.state.current_player.benched_cards[index - 1].attach_energy()
+                                    self.game.state.current_player.energy -= 1
+                                else:
+                                    self.set_message("You must enter a valid index.")
                     except ValueError:
                         self.set_message("Please enter a valid integer for the card index")
                     self.input_active = False
