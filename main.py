@@ -11,6 +11,7 @@ The main class of the game, acts as the entry point and handles display/UI input
 Attributes:
 screen (Surface) - The main screen surface.
 bg_color ((int, int, int)) - The background color (as an int triple).
+bg_image (Surface) - The background image.
 running (boolean) - Whether or not the game is running.
 game (Game) - An instance of Game that handles the actual logic of the game.
 font (Font) - The font used by all text.
@@ -56,15 +57,14 @@ class PokemonCardGame:
         pygame.display.set_icon(icon)
         self.screen = pygame.display.set_mode((1000, 600))
         self.bg_color = (255, 255, 255)
+
+        # Load & scale your background
+        self.bg_image = pygame.image.load("sprites/background7.jpg").convert()
+        self.bg_image = pygame.transform.scale(self.bg_image, self.screen.get_size())
+
         pygame.display.set_caption('Pokemon Card Game')
         self.screen.fill(self.bg_color)
         pygame.display.flip()
-
-        self.running = True
-        self.game = Game()
-        self.font = pygame.font.SysFont(None, 24)
-
-        # UI buttons and input setup...
         self.attack_button_rect = pygame.Rect(300, 550, 100, 40)
         self.draw_button_rect = pygame.Rect(175, 550, 100, 40)
         self.bench_button_rect = pygame.Rect(425, 550, 100, 40)
@@ -79,6 +79,11 @@ class PokemonCardGame:
         self.message_log = []
         self.should_draw_message = True
         
+        # initialize game‐logic instance, loop flag & font
+        self.running = True
+        self.font = pygame.font.SysFont(None, 24)
+        self.game = Game()
+
         # Begin deck selection before starting game loop.
         self.deck_selection_phase()
 
@@ -192,9 +197,10 @@ class PokemonCardGame:
 
     return: None
     '''
-    def draw_attack_button(self):
-        # Draw a green button with white "Attack" text.
-        pygame.draw.rect(self.screen, (0, 0, 200), self.attack_button_rect)
+    def draw_attack_button(self, mouse_pos):
+        normal, hover = (255, 0, 0), (255, 100, 100)
+        color = hover if self.attack_button_rect.collidepoint(mouse_pos) else normal
+        pygame.draw.rect(self.screen, color, self.attack_button_rect, border_radius=10)
         text_surface = self.font.render("Attack", True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=self.attack_button_rect.center)
         self.screen.blit(text_surface, text_rect)
@@ -205,9 +211,10 @@ class PokemonCardGame:
 
     return: None
     '''
-    def draw_active_button(self):
-        # Draw a blue button with white "Set Active" text.
-        pygame.draw.rect(self.screen, (0, 0, 200), self.active_button_rect)
+    def draw_active_button(self, mouse_pos):
+        normal, hover = (0, 0, 200), (100, 100, 255)
+        color = hover if self.active_button_rect.collidepoint(mouse_pos) else normal
+        pygame.draw.rect(self.screen, color, self.active_button_rect, border_radius=10)
         text_surface = self.font.render("Set Active", True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=self.active_button_rect.center)
         self.screen.blit(text_surface, text_rect)
@@ -218,9 +225,10 @@ class PokemonCardGame:
 
     return: None
     '''
-    def draw_draw_button(self):
-        # Draw a blue button with white "Draw" text.
-        pygame.draw.rect(self.screen, (0, 0, 200), self.draw_button_rect)
+    def draw_draw_button(self, mouse_pos):
+        normal, hover = (0, 0, 200), (100, 100, 255)
+        color = hover if self.draw_button_rect.collidepoint(mouse_pos) else normal
+        pygame.draw.rect(self.screen, color, self.draw_button_rect, border_radius=10)
         text_surface = self.font.render("Draw", True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=self.draw_button_rect.center)
         self.screen.blit(text_surface, text_rect)
@@ -231,9 +239,10 @@ class PokemonCardGame:
 
     return: None
     '''
-    def draw_bench_button(self):
-        # Draw a green button with white "Bench" text.
-        pygame.draw.rect(self.screen, (0, 0, 200), self.bench_button_rect)
+    def draw_bench_button(self, mouse_pos):
+        normal, hover = (0, 200, 0), (100, 255, 100)
+        color = hover if self.bench_button_rect.collidepoint(mouse_pos) else normal
+        pygame.draw.rect(self.screen, color, self.bench_button_rect, border_radius=10)
         text_surface = self.font.render("Bench", True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=self.bench_button_rect.center)
         self.screen.blit(text_surface, text_rect)
@@ -244,22 +253,24 @@ class PokemonCardGame:
 
     return: None
     '''
-    def draw_attach_button(self):
-        # Draw a blue button with white "Attach" text.
-        pygame.draw.rect(self.screen, (0, 0, 200), self.attach_button_rect)
+    def draw_attach_button(self, mouse_pos):
+        normal, hover = (0, 0, 200), (100, 100, 255)
+        color = hover if self.attach_button_rect.collidepoint(mouse_pos) else normal
+        pygame.draw.rect(self.screen, color, self.attach_button_rect, border_radius=10)
         text_surface = self.font.render("Attach", True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=self.attach_button_rect.center)
         self.screen.blit(text_surface, text_rect)
         pygame.display.update(self.attach_button_rect)
     
     '''
-    Handles drawing the attach button.
+    Handles drawing the pass button.
 
     return: None
     '''
-    def draw_pass_button(self):
-        # Draw a blue button with white "Pass" text.
-        pygame.draw.rect(self.screen, (0, 0, 200), self.pass_button_rect)
+    def draw_pass_button(self, mouse_pos):
+        normal, hover = (0, 0, 200), (100, 100, 255)
+        color = hover if self.pass_button_rect.collidepoint(mouse_pos) else normal
+        pygame.draw.rect(self.screen, color, self.pass_button_rect, border_radius=10)
         text_surface = self.font.render("Pass", True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=self.pass_button_rect.center)
         self.screen.blit(text_surface, text_rect)
@@ -391,9 +402,9 @@ class PokemonCardGame:
         current_card = self.game.state.current_player.active_card
         if current_card is not None:
             # Load the tackle sound and set its volume to maximum (1.0)
-            #tackle_sound = pygame.mixer.Sound('sounds/Tackle.mp3')
-            #tackle_sound.set_volume(1.0)
-            #tackle_sound.play()
+            tackle_sound = pygame.mixer.Sound('sounds/Tackle.mp3')
+            tackle_sound.set_volume(1.0)
+            tackle_sound.play()
             try:
                 if 0 <= 0 < len(current_card.moves):
                     move = current_card.moves[0]
@@ -415,6 +426,7 @@ class PokemonCardGame:
     return: None
     '''
     def events(self):
+        mouse_pos = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
@@ -508,19 +520,21 @@ class PokemonCardGame:
         
         while self.running:
             self.events()
-            self.screen.fill(self.bg_color)
+            mouse_pos = pygame.mouse.get_pos()
+            # Draw the background image
+            self.screen.blit(self.bg_image, (0, 0))
 
             self.draw_turn_info()
             self.draw_points()
             self.draw_active_cards()
             self.draw_hand_options()
             self.draw_benched_cards()
-            self.draw_attack_button()
-            self.draw_active_button()
-            self.draw_draw_button()
-            self.draw_bench_button()
-            self.draw_attach_button()
-            self.draw_pass_button()
+            self.draw_attack_button(mouse_pos)
+            self.draw_active_button(mouse_pos)
+            self.draw_draw_button(mouse_pos)
+            self.draw_bench_button(mouse_pos)
+            self.draw_attach_button(mouse_pos)
+            self.draw_pass_button(mouse_pos)
             self.draw_energy()
             self.draw_active_card_move()
             

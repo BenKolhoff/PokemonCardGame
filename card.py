@@ -63,7 +63,7 @@ class Card:
         if target.owner.active_card is None:
             self.owner.increase_points()
         
-        self.energy -= move.cost
+        #self.energy -= move.cost
         self.update_name()
         
         return msg
