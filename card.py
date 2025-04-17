@@ -60,7 +60,7 @@ class Card:
         target.take_damage(damage)
         msg = f"{self.card_name} used {move.name} for {damage} damage" + (" (1.5x!)" if target_is_weak else "")
         msg += f"\n{target.name} HP is now {target.hp}"
-        if target.owner.active_card is None:
+        if target.owner is not None and target.owner.active_card is None:
             self.owner.increase_points()
         
         #self.energy -= move.cost
