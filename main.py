@@ -60,7 +60,7 @@ class PokemonCardGame:
         self.bg_color = (255, 255, 255)
 
         # Load & scale your background
-        self.bg_image = pygame.image.load("sprites/background7.jpg").convert()
+        self.bg_image = pygame.image.load("sprites/background8.jpg").convert()
         self.bg_image = pygame.transform.scale(self.bg_image, self.screen.get_size())
 
         pygame.display.set_caption('Pokemon Card Game')
