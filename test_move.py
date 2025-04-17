@@ -23,7 +23,7 @@ class TestMove(unittest.TestCase):
 
     def test_str_representation(self):
         move = Move("Thunderbolt", 40, 2)
-        expected_str = "Thunderbolt - 40 damage, cost 2"
+        expected_str = "Thunderbolt (40 damage, 2 energy)"
         self.assertEqual(str(move), expected_str)
 
     def test_edge_case_values(self):
