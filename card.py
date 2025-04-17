@@ -25,6 +25,7 @@ update_name -> None - Updates the name to show the amount of energy the card cur
 class Card:
     def __init__(self, name, card_type, hp, stage, weakness=None, retreat_cost=None, evolves_from=None, moves=[], owner=None):
         self.name = name if type(name) == str else None
+        self.card_name = self.name
         self.type = card_type if type(card_type) == str else None
         self.hp = hp if type(hp) == int else None
         self.stage = stage if type(stage) == str else None
@@ -57,7 +58,7 @@ class Card:
         target_is_weak = target.weakness == self.type
         damage = int(move.damage * 1.5) if target_is_weak else move.damage
         target.take_damage(damage)
-        msg = f"{self.name} used {move.name} for {damage} damage" + (" (1.5x!)" if target_is_weak else "")
+        msg = f"{self.card_name} used {move.name} for {damage} damage" + (" (1.5x!)" if target_is_weak else "")
         msg += f"\n{target.name} HP is now {target.hp}"
         if target.owner.active_card is None:
             self.owner.increase_points()
@@ -133,7 +134,7 @@ class Card:
     return: None
     '''
     def update_name(self):
-        self.name = f"{"*" * self.energy}{self.name}"
+        self.name = f"{"*" * self.energy}{self.card_name}"
 
     def __str__(self):
         card_str = f"{self.name}::"
