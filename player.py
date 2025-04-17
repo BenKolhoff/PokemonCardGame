@@ -11,6 +11,7 @@ points (int) - The amount of points the player has
 
 Methods:
 set_active_card(index: int) -> None - Sets the player's active card if they specify a valid index and don't already have a card
+set_active_from_bench(index: int) -> None - Sets the player's active card from the bench if they specify a valid index and don't already have a card
 bench_card(card: Card) -> None - Moves the given card to the player's bench
 increase_points -> None - Increases the points of the player by 1
 discard_card(card: Card) -> None - Moves the card to the player's discard "pile" (the discard attribute)
@@ -49,6 +50,29 @@ class Player:
         else:
             self.active_card = self.hand[index]
             self.hand.pop(index)
+            print("Your active card is now " + self.active_card.name)
+
+    '''
+    Sets the player's active card from the bench if they specify a valid index and don't already have a card.
+
+    index (int) - The index of the card to become the active card
+
+    return: None
+    '''
+    def set_active_from_bench(self, index):
+        if self.active_card is not None:
+            print("You already have an active card. You must retreat that first.")
+        elif type(index) != int:
+            print("Index must be an integer")
+        elif len(self.benched_cards) == 0:
+            print("You cannot set an active card because your bench is empty.")
+        elif index < 0 or index >= len(self.benched_cards):
+            print("The specified index is out of bounds of your bench")
+        elif self.benched_cards[index].stage != "Basic":
+            print("Only basic cards can be set as active.")
+        else:
+            self.active_card = self.benched_cards[index]
+            self.benched_cards.pop(index)
             print("Your active card is now " + self.active_card.name)
 
     '''

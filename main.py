@@ -271,12 +271,10 @@ class PokemonCardGame:
                     try:
                         if self.current_input_src is self.active_button_rect:
                             index = int(self.active_input_text)
-                            self.game.state.current_player.set_active_card(index)
-                            # Removed turn change after setting active card.
+                            self.game.state.current_player.set_active_from_bench(index)
                         elif self.current_input_src is self.bench_button_rect:
                             index = int(self.active_input_text)
                             self.game.state.current_player.bench_card(index)
-                            # Removed turn change after benching a card.
                     except ValueError:
                         self.set_message("Error: Please enter a valid integer for the card index")
                     self.input_active = False
