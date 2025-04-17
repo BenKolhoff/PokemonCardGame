@@ -1,6 +1,8 @@
 import unittest
 from card import Card
 from move import Move
+import io
+from unittest.mock import patch
 
 class TestCard(unittest.TestCase):
     def setUp(self):
@@ -30,6 +32,37 @@ class TestCard(unittest.TestCase):
         self.card1.energy = 2
         self.card1.attack(self.card2, self.move)
         self.assertEqual(self.card2.hp, 30)  # 60 - 30 = 30
+
+    def test_attack_no_target(self):
+        self.card1.energy = self.move.cost
+        self.assertEqual(
+            self.card1.attack(None, self.move),
+            "Opponent has no active card, you must pass)"
+        )
+
+    def test_attack_invalid_move(self):
+        self.card1.energy = self.move.cost
+        self.assertEqual(
+            self.card1.attack(self.card2, None),
+            "Invalid move"
+        )
+
+    def test_attack_not_enough_energy(self):
+        self.card1.energy = 0
+        self.assertEqual(
+            self.card1.attack(self.card2, self.move),
+            "Not enough energy"
+        )
+
+    def test_attack_weakness_multiplier(self):
+        # make card2 weak to card1
+        self.card2.weakness = self.card1.type
+        self.card1.energy = self.move.cost
+        result = self.card1.attack(self.card2, self.move)
+        # damage should be 1.5×
+        expected_damage = int(self.move.damage * 1.5)
+        self.assertIn(f"for {expected_damage} damage", result)
+        self.assertIn("(1.5x!)", result)
     
     def test_attach_energy(self):
         self.card1.attach_energy()
@@ -49,10 +82,23 @@ class TestCard(unittest.TestCase):
         self.assertEqual(self.card3.hp, 340)
         self.assertEqual(self.card3.stage, "Stage 2")
     
+    def test_evolve_invalid(self):
+        # try to evolve into something not matching evolves_from
+        bad = Card("Bar", "Type", 10, "Stage 2", None, None, "Other")
+        with patch('sys.stdout', new_callable=io.StringIO) as out:
+            self.card1.evolve(bad)
+        self.assertIn("cannot evolve into", out.getvalue())
+
     def test_retreat(self):
         self.card1.energy = 2
         self.card1.retreat()
         self.assertEqual(self.card1.energy, 2)  # Need to implement full logic for this
+
+    def test_retreat_no_energy(self):
+        # retreat is a no-op if you don't meet retreat_cost
+        before = self.card1.energy
+        self.card1.retreat()
+        self.assertEqual(self.card1.energy, before)
 
     def test_take_damage(self):
         self.card1.take_damage(30)
@@ -66,6 +112,13 @@ class TestCard(unittest.TestCase):
         card = Card("Pikachu", "Electric", 60, "Basic", moves=[move])
         self.assertIn("Pikachu::Tackle", str(card))
     
+    def test_update_name(self):
+        # energy increases prefix stars
+        self.card1.card_name = "Foo"
+        self.card1.energy = 2
+        self.card1.update_name()
+        self.assertEqual(self.card1.name, "**Foo")
+
     def test_take_damage_with_owner(self):
         # Create a dummy player with a discard pile.
         class DummyPlayer:
